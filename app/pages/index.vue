@@ -8,5 +8,16 @@
 </template>
 
 <script setup>
-const tenant = useNuxtApp().$tenant
+// const tenant = useNuxtApp().$tenant
+
+const tenant = computed(() => {
+    
+    const data = useNuxtApp().$tenant
+
+    if (['bishaloy-tenant'].includes(data)) {
+        return null
+    } else {
+        return data
+    }
+})
 </script>
