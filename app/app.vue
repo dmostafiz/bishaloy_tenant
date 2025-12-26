@@ -1,5 +1,19 @@
 <template>
-  <div>
+  <NuxtLayout :name="isTenant ? 'tenant' : 'default'">
     <NuxtPage />
-  </div>
+  </NuxtLayout>
 </template>
+
+<script setup>
+// const tenant = useNuxtApp().$tenant
+
+const isTenant = computed(() => {
+
+  const data = useNuxtApp().$tenant
+  if (['bishaloy-tenant'].includes(data) || data == null || !data) {
+    return false
+  } else {
+    return true
+  }
+})
+</script>
