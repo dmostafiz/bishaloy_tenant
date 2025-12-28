@@ -1,23 +1,27 @@
-export async function resolveTenant(host: string) {
+export function resolveTenant(
+  host?: string | null
+): string | null | undefined {
   if (!host) return null
 
-  const cleanHost = host.split(':')[0]
-  const parts = cleanHost!.split('.')
+  // remove port, protocol, lowercase
+  let cleanHost = host
+    .replace(/^https?:\/\//, '')
+    .split(':')[0]!
+    .toLowerCase()
 
-  // store.yourdomain.com
-  if (parts.length > 2 && parts[0] !== 'www') {
+  // remove www.
+  cleanHost = cleanHost.replace(/^www\./, '')
 
-    const hostData = parts[0]!
+  const parts = cleanHost.split('.')
 
-    console.log('Host Data: ', hostData)
+  // single domain or custom domain → tenant.com
+  if (parts.length === 2) {
+    return cleanHost
+  }
 
-    const config = useRuntimeConfig()
-    const serverDomain = config.public.serverDomain
-
-    return await $fetch(`${serverDomain}/tenant`, {
-      headers: { 'x-host': hostData }
-    })
-    // return parts[0]
+  // subdomain → tenant.domain.com
+  if (parts.length > 2) {
+    return parts[0]
   }
 
   return null

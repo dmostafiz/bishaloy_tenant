@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout :name="isTenant ? 'tenant' : 'default'">
+  <NuxtLayout :name="isTenant ? 'tenant' : 'main'">
     <NuxtPage />
   </NuxtLayout>
 </template>
@@ -11,10 +11,9 @@ const isTenant = computed(() => {
 
   const data = useNuxtApp().$tenant
 
-  console.log('app tenant data:', data.value)
+  // console.log('app tenant data:', data)
 
-
-  if (['bishaloy-tenant'].includes(data.value) || data.value == null || !data.value) {
+  if (['bishaloy-tenant'].includes(data) || data == null || !data) {
     return false
   } else {
     return true

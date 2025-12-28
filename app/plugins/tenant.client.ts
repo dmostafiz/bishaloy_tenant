@@ -8,18 +8,24 @@ export default defineNuxtPlugin(async () => {
   if (tenantState.value) {
     return {
       provide: {
-        tenant: tenantState,
+        tenant: tenantState.value,
       },
     }
   }
 
-  // CSR-only fallback
-  const host = window.location.host
-  tenantState.value = await resolveTenant(host)
+  const { $axios } = useNuxtApp()
+
+  const res = await $axios.get('/tenant')
+
+  // console.log('tenant client plugin response: ', res?.data)
+
+  if (res?.data?.success) {
+    tenantState.value = res?.data?.tenant
+  }
 
   return {
     provide: {
-      tenant: tenantState,
+      tenant: tenantState.value,
     },
   }
 })

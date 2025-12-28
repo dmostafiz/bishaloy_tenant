@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     // Public keys (accessible in both server and client)
     public: {
       serverDomain: process.env.SERVER_DOMAIN,
+      appDomain: process.env.APP_DOMAIN
     }
   }
 })
