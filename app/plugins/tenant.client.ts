@@ -1,18 +1,25 @@
-// ~/plugins/tenant.client.ts
 import { resolveTenant } from '~/utils/resolveTenant'
+import { useTenant } from '~/composables/useTenant'
 
-export default defineNuxtPlugin(() => {
-    let host = ''
+export default defineNuxtPlugin(async () => {
+  const tenantState = useTenant()
 
-    if (import.meta.client) {
-        host = window.location.host
-    }
-
-    const tenant = resolveTenant(host)
-
+  // 🔐 If already resolved by SSR → do NOTHING
+  if (tenantState.value) {
     return {
-        provide: {
-            tenant
-        }
+      provide: {
+        tenant: tenantState,
+      },
     }
+  }
+
+  // CSR-only fallback
+  const host = window.location.host
+  tenantState.value = await resolveTenant(host)
+
+  return {
+    provide: {
+      tenant: tenantState,
+    },
+  }
 })
