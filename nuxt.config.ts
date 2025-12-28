@@ -8,5 +8,14 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxt/ui'
-  ]
+  ],
+
+  runtimeConfig: {
+    // Private keys (server-only)
+
+    // Public keys (accessible in both server and client)
+    public: {
+      serverDomain: process.env.SERVER_DOMAIN,
+    }
+  }
 })

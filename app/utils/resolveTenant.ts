@@ -11,7 +11,10 @@ export async function resolveTenant(host: string) {
 
     console.log('Host Data: ', hostData)
 
-    return await $fetch('http://localhost:3333/tenant', {
+    const config = useRuntimeConfig()
+    const serverDomain = config.public.serverDomain
+
+    return await $fetch(`${serverDomain}/tenant`, {
       headers: { 'x-host': hostData }
     })
     // return parts[0]

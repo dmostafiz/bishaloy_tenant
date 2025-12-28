@@ -10,7 +10,11 @@
 const isTenant = computed(() => {
 
   const data = useNuxtApp().$tenant
-  if (['bishaloy-tenant'].includes(data) || data == null || !data) {
+
+  console.log('app tenant data:', data.value)
+
+
+  if (['bishaloy-tenant'].includes(data.value) || data.value == null || !data.value) {
     return false
   } else {
     return true
