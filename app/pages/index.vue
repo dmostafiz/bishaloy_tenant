@@ -20,4 +20,15 @@ const tenant = computed(() => {
         return data
     }
 })
+
+
+const seo = computed(() => getTenantSeo(tenant.value))
+
+useSeoMeta(() => ({
+  title: 'Tenant',
+//   description: seo.value.description,
+//   ogTitle: seo.value.ogTitle,
+//   ogDescription: seo.value.ogDescription,
+  ogType: 'website',
+}))
 </script>
