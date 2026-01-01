@@ -18,5 +18,9 @@ export default defineNuxtConfig({
       serverDomain: process.env.SERVER_DOMAIN,
       appDomain: process.env.APP_DOMAIN
     }
-  }
+  },
+
+  extends: [
+    './layers/activator'
+  ]
 })

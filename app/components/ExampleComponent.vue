@@ -1,7 +1,6 @@
 <template>
   <div>
-  <h1>Default Main Layout</h1>
-    <slot />
+   Example Component 
   </div>
 </template>
 
@@ -9,4 +8,6 @@
 
 </script>
 
-<style></style>
+<style>
+
+</style>

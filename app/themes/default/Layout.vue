@@ -1,11 +1,15 @@
 <template>
-    <div>
-        <div>Default Theme</div>
+    <main class="theme-layout theme-default">
+        <Header />
         <slot />
-    </div>
+        <Footer />
+    </main>
 </template>
 
 <script lang="ts" setup>
+import Footer from './Inc/Footer.vue';
+import Header from './Inc/Header.vue';
+
 
 </script>
 

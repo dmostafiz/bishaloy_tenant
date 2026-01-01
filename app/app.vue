@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout :name="isTenant ? 'tenant' : 'main'">
+  <NuxtLayout :name="'tenant'">
     <NuxtPage />
   </NuxtLayout>
 </template>

@@ -1,10 +1,7 @@
 <template>
-  <div>
     <div>
-      Classic Theme
+        Default Theme Header
     </div>
-    <slot />
-  </div>
 </template>
 
 <script lang="ts" setup>

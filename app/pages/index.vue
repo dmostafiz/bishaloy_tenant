@@ -5,6 +5,13 @@
             {{ tenant || 'MAIN SITE' }}
         </span>
     </div>
+
+    <ComponentResolver name="ProductCard" :product="{name: 'example product'}" />
+
+    <ComponentResolver name="Nested/NestedComponent" :product="{name: 'example product'}" />
+
+
+    <!-- <ThemeProductCard :product="{ name: 'This is a product' }" /> -->
 </template>
 
 <script setup>
@@ -25,10 +32,10 @@ const tenant = computed(() => {
 const seo = computed(() => getTenantSeo(tenant.value))
 
 useSeoMeta(() => ({
-  title: 'Tenant',
-//   description: seo.value.description,
-//   ogTitle: seo.value.ogTitle,
-//   ogDescription: seo.value.ogDescription,
-  ogType: 'website',
+    title: 'Tenant',
+    //   description: seo.value.description,
+    //   ogTitle: seo.value.ogTitle,
+    //   ogDescription: seo.value.ogDescription,
+    ogType: 'website',
 }))
 </script>
