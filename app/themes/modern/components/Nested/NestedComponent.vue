@@ -1,6 +1,6 @@
 <template>
   <div>
-    Default Theme Nested Component
+    Modern Theme Nested Component
     {{ product }}
   </div>
 </template>

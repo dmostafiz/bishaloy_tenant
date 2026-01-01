@@ -9,6 +9,6 @@ defineProps<{
 </script>
 
 <template>
-<div>Default theme Product Card Old Component</div>
+<div>Modern theme Product Card Old Component</div>
 <NestedComponent :product="{name:'Hello product'}" />
 </template>

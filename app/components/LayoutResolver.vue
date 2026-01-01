@@ -1,17 +1,14 @@
 <template>
-    Layout resolver
-    <component :is="layoutComponent">
+    <component :is="Comp">
         <slot />
     </component>
+    Layout resolver
 </template>
 
 <script lang="ts" setup>
-import { capitalize } from 'vue';
+const themeStore = useThemeStore()
+const Comp = defineAsyncComponent(() => themeLayouts[`/themes/${themeStore.currentTheme}/Layout.vue`]!())
 
-const theme = 'default'
-const layoutComponent = computed(() => {
-    return `Theme${capitalize(theme)}Layout`
-})
 </script>
 
 <style></style>

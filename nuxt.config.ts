@@ -7,7 +7,9 @@ export default defineNuxtConfig({
     '@nuxt/hints',
     '@nuxt/image',
     '@nuxt/scripts',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
   ],
 
   runtimeConfig: {
@@ -20,7 +22,4 @@ export default defineNuxtConfig({
     }
   },
 
-  extends: [
-    './layers/activator'
-  ]
 })

@@ -1,12 +1,11 @@
 <template>
   <div>
-    Default Theme Nested Component
-    {{ product }}
+    Classic Theme Footer
   </div>
 </template>
 
 <script lang="ts" setup>
-const props = defineProps(['product'])
+
 </script>
 
 <style>

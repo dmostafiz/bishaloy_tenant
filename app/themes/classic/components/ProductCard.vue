@@ -5,7 +5,7 @@ const props = defineProps(['product'])
 </script>
 
 <template>
-<div>Default Theme Product Card Component</div>
+<div>Classic Theme Product Card Component</div>
 <pre>
 {{ product }}
 </pre>

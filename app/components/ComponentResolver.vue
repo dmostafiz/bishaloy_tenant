@@ -2,9 +2,10 @@
 const props = defineProps<{
     name: string
 }>()
+const themeStore = useThemeStore()
 
 
-const Comp = defineAsyncComponent(() => themeComponentsGlobal[`/themes/${'default'}/components/${props.name}.vue`]!())
+const Comp = defineAsyncComponent(() => themeComponents[`/themes/${themeStore.currentTheme}/components/${props.name}.vue`]!())
 
 </script>
 

@@ -1,6 +1,6 @@
 <template>
     <main class="theme-layout theme-default">
-        Default Theme Layout
+        Modern Theme Layout
         <Header />
         <slot />
         <Footer />
