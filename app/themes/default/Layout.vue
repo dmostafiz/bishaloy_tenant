@@ -1,6 +1,6 @@
 <template>
     <main class="theme-layout theme-default">
-        Default Theme Layout
+        Default Theme Layout - {{ themeStore.currentTheme }}
         <Header />
         <slot />
         <Footer />
@@ -11,7 +11,7 @@
 import Footer from './Inc/Footer.vue';
 import Header from './Inc/Header.vue';
 
-
+const themeStore = useThemeStore()
 </script>
 
 <style></style>

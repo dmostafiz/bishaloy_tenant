@@ -2,10 +2,9 @@
 const props = defineProps<{
     name: string
 }>()
-const themeStore = useThemeStore()
 
-
-const Comp = defineAsyncComponent(() => themeComponents[`/themes/${themeStore.currentTheme}/components/${props.name}.vue`]!())
+const tenant = useNuxtApp().$tenant
+const Comp = computed(() => defineAsyncComponent(() => themeComponents[`/themes/${tenant.theme}/components/${props.name}.vue`]!()))
 
 </script>
 

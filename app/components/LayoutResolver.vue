@@ -6,8 +6,9 @@
 </template>
 
 <script lang="ts" setup>
-const themeStore = useThemeStore()
-const Comp = defineAsyncComponent(() => themeLayouts[`/themes/${themeStore.currentTheme}/Layout.vue`]!())
+const tenant = useNuxtApp().$tenant
+
+const Comp = computed(() => defineAsyncComponent(() => themeLayouts[`/themes/${tenant.theme}/Layout.vue`]!()))
 
 </script>
 
