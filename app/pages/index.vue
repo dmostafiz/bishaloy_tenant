@@ -6,9 +6,9 @@
         </span>
     </div>
 
-    <ComponentResolver name="ProductCard" :product="{name: 'example product'}" />
+    <ComponentResolver name="ProductCard" :product="{name: 'example product 123'}" />
 
-    <ComponentResolver name="Nested/NestedComponent" :product="{name: 'example product'}" />
+    <ComponentResolver name="Nested/NestedComponent" :product="{name: 'example product 123'}" />
 
 
     <!-- <ThemeProductCard :product="{ name: 'This is a product' }" /> -->

@@ -3,7 +3,7 @@
         Products page
     </div>
 
-    <ComponentResolver name="ProductCardOld" :product="{name: 'example product'}" />
+    <ComponentResolver name="ProductCardOld" :product="{name: 'example product 123'}" />
 
 </template>
 

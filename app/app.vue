@@ -17,6 +17,28 @@ const isTenant = computed(() => {
   }
 })
 
+useHead({
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/png',
+      href: data.favicon,
+    },
+  ],
+})
+
+useHead(() => ({
+  link: data.faviocon
+    ? [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: data.faviocon,
+        },
+      ]
+    : [],
+}))
+
 useSeoMeta({
   title: `${data.name} - ${data.title}`,
   ogTitle: data.title,
