@@ -2,7 +2,6 @@
     <component :is="Comp">
         <slot />
     </component>
-    Layout resolver
 </template>
 
 <script lang="ts" setup>

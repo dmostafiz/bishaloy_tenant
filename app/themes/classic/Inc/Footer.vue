@@ -1,6 +1,6 @@
 <template>
   <div>
-    Classic Theme Footer
+    Default Theme Footer
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    Modern Theme Footer
+    Default Theme Footer
   </div>
 </template>
 

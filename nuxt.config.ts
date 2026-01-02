@@ -12,6 +12,12 @@ export default defineNuxtConfig({
     'pinia-plugin-persistedstate/nuxt',
   ],
 
+  ui: {
+    colorMode: false
+  },
+
+  css: ['~/assets/css/main.css'],
+
   runtimeConfig: {
     // Private keys (server-only)
 

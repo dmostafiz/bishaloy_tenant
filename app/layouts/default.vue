@@ -1,8 +1,7 @@
 <template>
-  <div>
-  <h1>Default Main Layout</h1>
-    <slot />
-  </div>
+
+  <slot />
+
 </template>
 
 <script lang="ts" setup>

@@ -1,6 +1,5 @@
 <template>
     <main class="theme-layout theme-default">
-        Modern Theme Layout - {{ themeStore.currentTheme }}
         <Header />
         <slot />
         <Footer />
