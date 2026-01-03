@@ -1,13 +1,13 @@
 <template>
   <div>
-   Example Component 
+    Example Component
   </div>
 </template>
 
 <script lang="ts" setup>
 
+  
+
 </script>
 
-<style>
-
-</style>
+<style></style>
