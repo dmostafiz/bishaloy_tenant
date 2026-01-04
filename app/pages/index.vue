@@ -1,10 +1,7 @@
 <template>
-    <div class="p-10 text-2xl">
-        Tenant:
-        <span class="font-bold">
-            {{ tenant || 'MAIN SITE' }}
-        </span>
-    </div>
+   
+
+    <ComponentResolver name="Home/Carousel" />
 
     <ComponentResolver name="ProductCard" :product="{name: 'example product 123'}" />
 

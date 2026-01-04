@@ -1,14 +1,43 @@
 <script setup lang="ts">
+import { defineAsyncComponent, computed } from "vue";
+import FileNotExists from "@/components/FileNotExists.vue";
+import type { Component } from "vue";
+
 const props = defineProps<{
-    name: string
-}>()
+    name: string;
+}>();
 
-const tenant = useNuxtApp().$tenant
-const Comp = computed(() => defineAsyncComponent(() => themeComponents[`/themes/${tenant.theme}/components/${props.name}.vue`]!()))
+const tenant = useNuxtApp().$tenant;
+const themeComponents = import.meta.glob<Component>("/themes/**/components/**/*.vue");
+const path = `/themes/${tenant.theme}/components/${props.name}.vue`;
 
+const Comp = computed(() => {
+    // ❌ Component file does not exist
+    if (!themeComponents[path]) {
+        return null;
+    }
+
+    // ✅ Component exists
+    return defineAsyncComponent({
+        loader: themeComponents[path],
+        delay: 200,
+        timeout: 5000,
+        onError(error, retry, fail, attempts) {
+            if (attempts <= 2) {
+                retry();
+            } else {
+                console.error("Failed to load:", path, error);
+                fail();
+            }
+        },
+    });
+});
 </script>
 
 <template>
-    <div>Componet resolver</div>
-    <component :is="Comp" v-if="Comp" v-bind="$attrs" />
+    <component v-if="Comp" :is="Comp" v-bind="$attrs">
+        <slot />
+    </component>
+
+    <FileNotExists v-else :path="path" />
 </template>
