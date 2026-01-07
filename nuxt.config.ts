@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
+    '@peterbud/nuxt-query',
   ],
 
   ui: {
@@ -26,6 +27,25 @@ export default defineNuxtConfig({
       serverDomain: process.env.SERVER_DOMAIN,
       appDomain: process.env.APP_DOMAIN
     }
+  },
+
+  nuxtQuery: {
+    autoImports: ['useQuery', 'useMutation'],
+
+    // Enable/disable Nuxt DevTools integration (default: true)
+    devtools: true,
+    
+    queryClientOptions: {
+      defaultOptions: {
+        queries: {
+          // for example disable refetching on window focus
+          refetchOnWindowFocus: false,
+
+          // or change the default refetch interval
+          // refetchInterval: 5000,
+        },
+      },
+    },
   },
 
 })

@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+    <header class="bg-gray-900 sticky text-white  top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4">
             <!-- Top Row -->
             <div class="flex items-center justify-between py-3 gap-2">
@@ -87,15 +87,16 @@
                 </div>
             </div>
         </div>
-
-        <Navigation />
-
     </header>
+
+    <div class="bg-gray-900 text-white  top-0">
+        <Navigation />
+    </div>
 </template>
 
 <script lang="ts" setup>
 import Navigation from './Navigation.vue';
-const {$tenant} = useNuxtApp()
+const { $tenant } = useNuxtApp()
 
 
 </script>

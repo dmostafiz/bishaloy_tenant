@@ -1,15 +1,18 @@
 <template>
     <!-- Category Nav -->
-    <div class="bg-gray-800 py-2 overflow-x-auto">
-        <div class="container mx-auto px-4 flex items-center gap-4 lg:gap-6 text-xs sm:text-sm">
-            <button onclick="toggleCategories()"
-                class="lg:hidden whitespace-nowrap hover:text-orange-400 transition font-semibold flex items-center gap-1">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
-                Categories
-            </button>
+    <div class="relative bg-gray-800 py-2">
+        <div class="relative container mx-auto px-4 flex items-center gap-4 lg:gap-6 text-xs sm:text-sm">
+            <div class="relative">
+                <button onclick="toggleCategories()"
+                    class="whitespace-nowrap hover:text-orange-400 transition font-semibold flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                    </svg>
+                    Categories
+                </button>  
+            </div>
             <button onclick="filterCategory('all')"
                 class="whitespace-nowrap hover:text-orange-400 transition font-semibold hidden lg:inline">All</button>
             <button onclick="filterCategory('electronics')"
