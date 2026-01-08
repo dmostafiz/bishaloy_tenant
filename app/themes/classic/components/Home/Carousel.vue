@@ -1,10 +1,10 @@
 <template>
     <div class="h-[70vh]">
-        <div class="container mx-auto px-4 h-full">
+        <div class="h-full">
             <div class="flex h-full">
-                <div class="hidden lg:block shadow w-62.5 bg-white h-[70vh]">
+                <!-- <div class="hidden lg:block shadow w-62.5 bg-white h-[70vh]">
                     <HomeCarouselNavigation />
-                </div>
+                </div> -->
                 <div class="flex-1 overflow-auto w-full h-full">
                     <div class="w-full h-full">
                         <HomeCarousel />
