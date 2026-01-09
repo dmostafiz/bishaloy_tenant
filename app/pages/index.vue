@@ -18,7 +18,7 @@
                     </svg>
                 </button>
             </div>
-            <div id="featuredGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div id="featuredGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 <!-- Products will be inserted here -->
                 <div v-for="(product, i) in products" :key="i">
                     <ComponentResolver name="ProductCard" :product="product" />
