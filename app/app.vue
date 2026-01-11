@@ -1,6 +1,8 @@
 <template>
   <NuxtLayout :name="'tenant'">
-    <NuxtPage />
+  
+      <NuxtPage />
+  
   </NuxtLayout>
 </template>
 
@@ -30,12 +32,12 @@ useHead({
 useHead(() => ({
   link: data.faviocon
     ? [
-        {
-          rel: 'icon',
-          type: 'image/png',
-          href: data.faviocon,
-        },
-      ]
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: data.faviocon,
+      },
+    ]
     : [],
 }))
 

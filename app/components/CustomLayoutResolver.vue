@@ -6,11 +6,12 @@ import {
 import FileNotExists from '@/components/FileNotExists.vue'
 import type { Component } from 'vue'
 
-const tenant = useNuxtApp().$tenant
+const props = defineProps<{
+    name: string;
+}>();
+const themeLayouts = import.meta.glob<Component>('/CustomLayouts/**/*.vue')
 
-const themeLayouts = import.meta.glob<Component>('/themes/*/Layout.vue')
-
-const path = `/themes/${tenant.theme}/Layout.vue`
+const path = `/CustomLayouts/${props.name}.vue`
 
 const Comp = computed(() => {
 

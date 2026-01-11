@@ -1,7 +1,9 @@
 <template>
-  <LayoutResolver>
+  <!-- <LayoutResolver> -->
+  <CustomLayoutResolver name="DefaultLayout">
     <NuxtPage />
-  </LayoutResolver>
+  </CustomLayoutResolver>
+  <!-- </LayoutResolver> -->
 </template>
 
 

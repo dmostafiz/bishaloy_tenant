@@ -1,31 +1,54 @@
 <template>
 
 
-    <ComponentResolver name="Home/Carousel" class="mb-10" />
+    <CustomComponentResolver :name="$tenant?.components?.carousel" class="mb-10" />
 
-    <div class="container mx-auto px-4">
-        <section class="mb-12">
-            <div class="flex justify-between items-center mb-6">
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900">Featured Products</h2>
-                    <p class="text-gray-600 mt-1">Hand-picked items just for you</p>
-                </div>
-                <button onclick="showSection('featured')"
-                    class="text-orange-500 hover:text-orange-600 font-semibold flex items-center gap-2">
-                    View All
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
+    <div class="flex flex-col gap-10" v-for="section, i in sections" :key="i">
+
+        <div v-if="section.type == 'titleSection'"
+            :style="{ 'background-color': section.bgColor, 'padding': `${section?.padding?.top}px ${section.padding?.bottom}px ${section.padding?.left}px ${section.padding?.right}px` }">
+            <div class="container mx-auto px-4">
+                <section class="mb-12">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900">{{ section.title }}</h2>
+                            <p class="text-gray-600 mt-1">{{ section.subTitle }}</p>
+                        </div>
+                        <button v-if="section.showViewMoreLink" @click="navigateTo(section.viewMoreLinkUrl)"
+                            class="text-orange-500 hover:text-orange-600 font-semibold flex items-center gap-2">
+                            {{ section.viewMoreLinkText }}
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div v-if="section?.content?.dataViewerType == 'grid'" id="featuredGrid"
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                        <!-- Products will be inserted here -->
+                        <div v-for="(product, i) in products.filter(p =>
+                            section.content.products.includes(p.id)
+                        )" :key="i">
+                            <CustomComponentResolver :name="tenant?.components?.productCard || 'Product/GridCards/DefaultCard'" :product="product" />
+                        </div>
+                    </div>
+                </section>
             </div>
-            <div id="featuredGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <!-- Products will be inserted here -->
-                <div v-for="(product, i) in products" :key="i">
-                    <ComponentResolver name="ProductCard" :product="product" />
+        </div>
+
+        <div v-if="section.type == 'hero'" class="w-full py-10 bg-cover bg-no-repeat"
+            :style="{ 'height': `${section.height}px`, 'background-image': `url(${section.bgImageUrl})`, 'padding': `${section?.padding?.top}px ${section.padding?.bottom}px ${section.padding?.left}px ${section.padding?.right}px` }">
+            <div :dir="section.contentDirection" class="container mx-auto px-4">
+                <div class="max-w-lg">
+                    <h1 class="font-bold text-4xl mb-2">{{ section.title }}</h1>
+                    <p class="text-xl">{{ section.subTitle }}</p>
                 </div>
             </div>
-        </section>
+        </div>
+
     </div>
+
+
 
     <!-- <ThemeProductCard :product="{ name: 'This is a product' }" /> -->
 </template>
@@ -69,5 +92,19 @@ const products = [
     { id: 11, name: 'RGB Gaming Mouse', category: 'electronics', price: 49.99, rating: 4.7, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop', badge: 'New', stock: 35 },
     { id: 12, name: 'Stainless Water Bottle', category: 'sports', price: 19.99, rating: 4.3, image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop', badge: 'Trending', stock: 50 }
 ];
+
+
+const { $axios } = useNuxtApp()
+
+const { data: sections } = useQuery({
+    queryKey: ['homePage'],
+    queryFn: async () => {
+        const res = await $axios.get('/tenant/home-page')
+
+        console.log('home page response: ', res?.data)
+        return res?.data?.sections
+    }
+
+})
 
 </script>
