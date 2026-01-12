@@ -8,7 +8,7 @@
 
 <script setup>
 // const tenant = useNuxtApp().$tenant
-const data = useNuxtApp().$tenant
+const data = useNuxtApp()$tenant
 
 const isTenant = computed(() => {
   // console.log('app tenant data:', data)
