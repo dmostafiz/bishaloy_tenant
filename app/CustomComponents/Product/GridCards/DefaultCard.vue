@@ -2,20 +2,20 @@
     <div
         class="bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
         <div class="relative overflow-hidden bg-gray-50">
-            <img :src="product.image" alt="product.name"
+            <img :src="product?.image" width="100%" height="auto" alt="product.name"
                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
             <div
                 class="absolute top-3 left-3 ${badgeColor} text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                {{ product.badge }}
+                {{ product?.badge }}
             </div>
             <div
                 class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                -{{ product.discount }}%
+                -{{ product?.discount }}%
             </div>
 
-            <div v-if="product.stock < 10"
+            <div v-if="product?.stock < 10"
                 class="absolute bottom-3 left-3 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                Only {{ product.stock }} left!
+                Only {{ product?.stock }} left!
             </div>
 
             <button onclick="addToCart({product.id})"
@@ -28,20 +28,21 @@
             </button>
         </div>
         <div class="p-4">
-            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{{ product.category }}</div>
+            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{{ product?.category }}</div>
             <h3 class="font-bold text-lg mb-2 line-clamp-2 text-gray-800 group-hover:text-orange-500 transition">
-                {{ product.name }}</h3>
+                {{ product?.name }}</h3>
             <div class="flex items-center mb-3">
                 <div class="flex items-center">
                     <span class="text-yellow-400 text-sm">{{ '★'.repeat(Math.floor(product.rating)) }}
-                        {{ '☆'.repeat(5 - Math.floor(product.rating)) }}</span>
-                    <span class="text-gray-600 text-xs ml-2">{{ product.rating }}</span>
+                        {{ '☆'.repeat(5 - Math.floor(product?.rating)) }}</span>
+                    <span class="text-gray-600 text-xs ml-2">{{ product?.rating }}</span>
                 </div>
-                <span class="text-gray-400 text-xs ml-2">({{ reviews }})</span>
+                <span class="text-gray-400 text-xs ml-2">({{ product?.reviews ?? 0 }})</span>
             </div>
             <div class="flex items-baseline gap-2 mb-3">
-                <span class="text-2xl font-bold text-gray-900">{{ product.price }}</span>
-                <span class="text-sm text-gray-400 line-through">{{ originalPrice }}</span>
+                <span class="text-2xl font-bold text-gray-900">{{ product?.price }}</span>
+                <span v-if="product?.originalPrice" class="text-sm text-gray-400 line-through">{{ product?.originalPrice
+                }}</span>
             </div>
             <button onclick="addToCart(${product.id})"
                 class="w-full bg-gray-900 hover:bg-orange-500 text-white py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">

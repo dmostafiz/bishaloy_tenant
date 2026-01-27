@@ -2,7 +2,7 @@
     <div
         class="bg-white shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
         <div class="relative overflow-hidden bg-gray-50">
-            <img :src="product.image" alt="product.name"
+            <img :src="product.image" alt="product.name" width="100%" height="auto"
                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
             <div
                 class="absolute top-3 left-3 ${badgeColor} text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
@@ -37,12 +37,12 @@
                         {{ '☆'.repeat(5 - Math.floor(product.rating)) }}</span>
                     <span class="text-gray-600 text-xs ml-2">{{ product.rating }}</span>
                 </div>
-                <span class="text-gray-400 text-xs ml-2">({{ reviews }})</span>
+                <span class="text-gray-400 text-xs ml-2">({{ product?.reviews }})</span>
             </div>
             <div class="flex items-center justify-between gap-2">
                 <div class="flex items-baseline gap-2 mb-3">
                     <span class="text-lg font-bold text-gray-900">{{ product.price }}</span>
-                    <span class="text-sm text-gray-400 line-through">{{ originalPrice }}</span>
+                    <span class="text-sm text-gray-400 line-through">{{ product?.originalPrice }}</span>
                 </div>
                 <button onclick="addToCart(${product.id})"
                     class="px-3 bg-gray-900 hover:bg-orange-500 text-white py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
