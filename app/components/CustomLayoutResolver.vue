@@ -12,6 +12,8 @@ const path = `/CustomLayouts/${props.name}.vue`
 
 const Comp = shallowRef<Component | null>(null)
 
+console.log('themeLayouts[path]: ', themeLayouts[path])
+
 if (themeLayouts[path]) {
   Comp.value = defineAsyncComponent({
     loader: themeLayouts[path],

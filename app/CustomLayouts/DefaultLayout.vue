@@ -14,6 +14,8 @@
 <script lang="ts" setup>
 const themeStore = useThemeStore()
 const { $tenant } = useNuxtApp()
+
+console.log('$tenant: ', $tenant)
 </script>
 
 <style></style>
