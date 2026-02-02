@@ -4,6 +4,11 @@ import { resolveTenant } from '~/utils/resolveTenant'
 export default defineNuxtPlugin((nuxtApp) => {
     const config = useRuntimeConfig()
 
+    if (import.meta.server) {
+        console.log('[SSR] Runtime Config Public:', JSON.stringify(config.public, null, 2))
+        console.log('[SSR] serverDomain:', config.public.serverDomain)
+    }
+
     const api = axios.create({
         baseURL: config.public.serverDomain,
         withCredentials: true
