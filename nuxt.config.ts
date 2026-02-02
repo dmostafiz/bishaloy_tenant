@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 
     // Enable/disable Nuxt DevTools integration (default: true)
     devtools: true,
-    
+
     queryClientOptions: {
       defaultOptions: {
         queries: {
