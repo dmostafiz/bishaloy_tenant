@@ -14,7 +14,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
         // SSR
         if (import.meta.server) {
-            host = nuxtApp.ssrContext?.event.node.req.headers.host || null
+            const headers = nuxtApp.ssrContext?.event.node.req.headers
+            host = (headers?.['x-forwarded-host'] as string) || headers?.host || null
         }
 
         // Client
@@ -22,7 +23,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             host = window.location.host
         }
 
-        const tenantId = resolveTenant(host)
+        const tenantId = resolveTenant(host, config.public.appDomain)
 
         if (tenantId) {
             request.headers['x-tenant-id'] = tenantId
