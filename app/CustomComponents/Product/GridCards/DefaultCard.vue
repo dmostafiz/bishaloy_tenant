@@ -1,6 +1,6 @@
 <template>
-    <div
-        class="bg-theme-card rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
+    <NuxtLink :to="`/product/${product?.id || 1}`"
+        class="block bg-theme-card rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
         <div class="relative overflow-hidden bg-theme-elevated">
             <img :src="product?.image" width="100%" height="auto" alt="product.name"
                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
@@ -18,7 +18,7 @@
                 Only {{ product?.stock }} left!
             </div>
 
-            <button onclick="addToCart({product.id})"
+            <button onclick="addToCart({product.id})" @click.prevent
                 class="absolute bottom-3 right-3 bg-primary text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 hover:bg-accent shadow-lg">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -45,12 +45,12 @@
                     product?.originalPrice
                     }}</span>
             </div>
-            <button onclick="addToCart(${product.id})"
+            <button onclick="addToCart(${product.id})" @click.prevent
                 class="w-full bg-theme-elevated hover:bg-primary text-theme hover:text-white py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
                 Add to Cart
             </button>
         </div>
-    </div>
+    </NuxtLink>
 </template>
 
 <script setup>

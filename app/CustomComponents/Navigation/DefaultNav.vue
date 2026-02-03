@@ -1,7 +1,7 @@
 <template>
     <!-- Category Nav -->
     <div
-        class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-2 overflow-x-auto text-theme">
+        class="bg-gray-800 border-b border-gray-700 py-2 overflow-x-auto text-white">
         <div class="container mx-auto px-4 flex items-center gap-4 lg:gap-6 text-xs sm:text-sm">
             <button onclick="toggleCategories()"
                 class="lg:hidden whitespace-nowrap hover:text-primary transition font-semibold flex items-center gap-1">
