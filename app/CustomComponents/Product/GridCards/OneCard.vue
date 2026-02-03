@@ -34,40 +34,40 @@
         </div>
 
         <!-- Content -->
-        <div class="p-5">
-            <div class="text-xs text-primary font-semibold uppercase tracking-wider mb-2">{{ product?.category || 'Category' }}</div>
+        <div class="p-4 flex flex-col flex-1 bg-white dark:bg-gray-800">
+            <div class="text-xs text-primary font-semibold uppercase tracking-wider mb-1">{{ product?.category || 'Category' }}</div>
             
-            <h3 class="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100 group-hover:text-primary transition-colors line-clamp-2 min-h-[3.5rem]">
+            <h3 class="font-bold text-base mb-1 text-gray-900 dark:text-gray-100 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
                 {{ product?.name }}
             </h3>
             
             <!-- Ratings -->
-            <div class="flex items-center mb-4">
-                <div class="flex items-center text-yellow-400 text-sm gap-0.5">
+            <div class="flex items-center mb-3">
+                <div class="flex items-center text-yellow-400 text-xs gap-0.5">
                     <template v-for="i in 5" :key="i">
-                         <svg v-if="i <= Math.floor(product?.rating || 0)" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                         <svg v-if="i <= Math.floor(product?.rating || 0)" class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
-                        <svg v-else class="w-4 h-4 text-gray-300 dark:text-gray-600 fill-current" viewBox="0 0 20 20">
+                        <svg v-else class="w-3.5 h-3.5 text-gray-300 dark:text-gray-600 fill-current" viewBox="0 0 20 20">
                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                     </template>
                 </div>
-                <span class="text-gray-400 text-xs ml-2 font-medium">({{ product?.reviews ?? 0 }} reviews)</span>
+                <span class="text-gray-400 text-xs ml-2 font-medium">({{ product?.reviews ?? 0 }})</span>
             </div>
             
             <!-- Price and Action -->
-            <div class="flex items-center justify-between mt-auto pt-2">
+            <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100 dark:border-gray-700">
                 <div class="flex flex-col">
                     <div class="flex items-baseline gap-2">
-                        <span class="text-xl font-bold text-gray-900 dark:text-white">{{ product?.price }}</span>
-                        <span v-if="product?.originalPrice" class="text-sm text-gray-400 line-through">
+                        <span class="text-lg font-bold text-gray-900 dark:text-white">{{ product?.price }}</span>
+                        <span v-if="product?.originalPrice" class="text-xs text-gray-400 line-through">
                             {{ product.originalPrice }}
                         </span>
                     </div>
                 </div>
                  <button @click.prevent="addToCart"
-                    class="bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary hover:text-white transition-all duration-300">
+                    class="bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-primary hover:text-white transition-all duration-300">
                     Add
                 </button>
             </div>

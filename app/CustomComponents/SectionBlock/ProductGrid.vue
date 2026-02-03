@@ -1,5 +1,6 @@
 <template>
-    <section class="container mx-auto px-4 py-16">
+    <section class="py-16 bg-white dark:bg-gray-950 transition-colors duration-300">
+        <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row items-end justify-between mb-12 gap-4">
             <div class="max-w-xl">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3 tracking-tight">
@@ -27,6 +28,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
             </NuxtLink>
+        </div>
         </div>
     </section>
 </template>

@@ -2,10 +2,12 @@
     <!-- {{ $tenant?.layoutComponents?.carousel }} -->
 
     <!-- Dynamic Sections Loop -->
-    <div v-for="section in dynamicSections" :key="section.id">
+    <div v-for="(section, index) in dynamicSections" :key="section.id">
         <!-- Render Custom Component if defined -->
-        <CustomComponentResolver v-if="section.component" :name="section.component" v-bind="section.props || {}"
-            class="mb-10" />
+        <CustomComponentResolver v-if="section.component" :name="section.component" v-bind="section.props || {}" />
+        
+        <!-- Section Separator -->
+        <div v-if="index < dynamicSections.length - 1" class="w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent"></div>
     </div>
 
     <!-- Legacy / Fallback Content (if needed, or can be removed if fully dynamic) -->
