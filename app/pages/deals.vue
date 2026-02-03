@@ -1,20 +1,18 @@
 <template>
-    <div class="min-h-screen bg-gray-50">
-        <!-- Hero -->
-        <div class="relative bg-gradient-to-r from-orange-600 via-red-500 to-pink-500 text-white py-20 overflow-hidden">
-            <div class="container mx-auto px-4 text-center relative z-10">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full mb-6">
-                    <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-                    <span class="text-sm font-medium">Limited Time Offers</span>
-                </div>
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Mega Deals & Offers</h1>
-                <p class="text-xl text-white/90 mb-8">Save up to 70% on thousands of products</p>
-                <div class="flex items-center justify-center gap-4">
-                    <div v-for="(val, key) in countdown" :key="key" class="text-center">
-                        <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mb-1">
-                            <span class="text-2xl font-bold">{{ val }}</span>
-                        </div>
-                        <span class="text-xs">{{ key }}</span>
+    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <!-- Countdown Hero -->
+        <div class="bg-gradient-to-r from-red-600 via-orange-500 to-red-600 text-white py-10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,...')] opacity-10"></div>
+            <div class="container mx-auto px-4 text-center relative">
+                <span class="inline-block px-4 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-semibold mb-4">⚡
+                    Limited Time</span>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Flash Deals</h1>
+                <p class="text-lg text-orange-100 mb-6">Up to 70% off - Hurry, ends soon!</p>
+                <div class="flex justify-center gap-4">
+                    <div v-for="(unit, label) in countdown" :key="label"
+                        class="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px]">
+                        <div class="text-3xl font-bold">{{ String(unit).padStart(2, '0') }}</div>
+                        <div class="text-xs text-orange-200 uppercase">{{ label }}</div>
                     </div>
                 </div>
             </div>
@@ -22,41 +20,56 @@
 
         <div class="container mx-auto px-4 py-12">
             <!-- Flash Deals -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">⚡ Flash Deals</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center text-white">⚡</span>
+                    Flash Deals
+                </h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div v-for="deal in flashDeals" :key="deal.id"
-                        class="bg-white rounded-xl shadow-sm overflow-hidden group">
-                        <div class="relative aspect-square">
+                        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative aspect-square overflow-hidden">
                             <img :src="deal.image" :alt="deal.name"
-                                class="w-full h-full object-cover group-hover:scale-105 transition">
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                             <div
-                                class="absolute top-2 left-2 px-2 py-1 bg-red-500 text-white text-xs font-bold rounded">
-                                -{{ deal.discount }}%
-                            </div>
+                                class="absolute top-3 left-3 px-2 py-1 bg-red-500 text-white text-xs font-bold rounded">
+                                -{{ deal.discount }}%</div>
                         </div>
-                        <div class="p-3">
-                            <h4 class="text-sm font-medium line-clamp-2 mb-2">{{ deal.name }}</h4>
-                            <div class="flex gap-2">
-                                <span class="font-bold text-red-500">${{ deal.salePrice }}</span>
+                        <div class="p-4">
+                            <h4 class="font-semibold text-gray-800 dark:text-white mb-2 line-clamp-1">{{ deal.name }}
+                            </h4>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xl font-bold text-red-500">${{ deal.salePrice }}</span>
                                 <span class="text-sm text-gray-400 line-through">${{ deal.originalPrice }}</span>
                             </div>
+                            <div class="relative h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                <div :style="{ width: `${deal.soldPercent}%` }"
+                                    class="absolute inset-y-0 left-0 bg-gradient-to-r from-orange-500 to-red-500 rounded-full">
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ deal.soldPercent }}% sold</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Coupons -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">🎟️ Coupons</h2>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div v-for="c in coupons" :key="c.code" class="bg-orange-500 text-white rounded-xl p-5">
-                        <p class="text-sm opacity-80">{{ c.description }}</p>
-                        <p class="text-2xl font-bold my-2">{{ c.discount }}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="font-mono bg-white/20 px-2 py-1 rounded">{{ c.code }}</span>
-                            <button @click="navigator.clipboard.writeText(c.code)"
-                                class="px-3 py-1 bg-white text-orange-500 rounded font-medium text-sm">Copy</button>
+            <!-- Coupon Codes -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">🎟️ Exclusive Coupons</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div v-for="coupon in coupons" :key="coupon.code"
+                        class="bg-gradient-to-r from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 rounded-2xl p-5 text-white relative overflow-hidden group">
+                        <div class="absolute -right-4 -bottom-4 text-8xl opacity-20">🏷️</div>
+                        <div class="relative">
+                            <p class="text-3xl font-bold mb-1">{{ coupon.discount }}</p>
+                            <p class="text-sm text-orange-100 mb-3">{{ coupon.description }}</p>
+                            <div class="flex items-center gap-2">
+                                <code class="px-3 py-1 bg-white/20 rounded font-mono text-sm">{{ coupon.code }}</code>
+                                <button @click="copyCoupon(coupon.code)"
+                                    class="px-3 py-1 bg-white text-orange-500 rounded font-semibold text-sm hover:bg-orange-50 transition">
+                                    {{ copied === coupon.code ? '✓ Copied' : 'Copy' }}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,30 +77,24 @@
 
             <!-- Today's Deals -->
             <section>
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">🛍️ Today's Deals</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div v-for="p in todayDeals" :key="p.id"
-                        class="bg-white rounded-xl shadow-sm overflow-hidden group">
-                        <div class="relative aspect-square">
-                            <img :src="p.image" :alt="p.name"
-                                class="w-full h-full object-cover group-hover:scale-105 transition">
-                            <div
-                                class="absolute top-2 left-2 px-2 py-1 bg-red-500 text-white text-xs font-bold rounded">
-                                SAVE ${{ (p.originalPrice - p.price).toFixed(0) }}
-                            </div>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">🔥 Today's Best Deals</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div v-for="deal in todayDeals" :key="deal.id"
+                        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        <div class="relative aspect-video overflow-hidden">
+                            <img :src="deal.image" :alt="deal.name"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-4">
-                            <h4 class="font-medium line-clamp-2 mb-2 group-hover:text-orange-500">{{ p.name }}</h4>
+                            <h4 class="font-semibold text-gray-800 dark:text-white mb-2">{{ deal.name }}</h4>
                             <div class="flex items-center justify-between">
-                                <div>
-                                    <span class="text-xl font-bold text-red-500">${{ p.price }}</span>
-                                    <span class="text-sm text-gray-400 line-through ml-2">${{ p.originalPrice }}</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl font-bold text-orange-500">${{ deal.price }}</span>
+                                    <span class="text-sm text-gray-400 line-through">${{ deal.originalPrice }}</span>
                                 </div>
-                                <button class="p-2 bg-orange-500 text-white rounded-lg">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 4v16m8-8H4" />
-                                    </svg>
+                                <button
+                                    class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-semibold transition">
+                                    Shop
                                 </button>
                             </div>
                         </div>
@@ -98,44 +105,45 @@
     </div>
 </template>
 
-<script lang="ts" setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+<script setup lang="ts">
+import { ref, reactive, onMounted, onUnmounted } from 'vue'
+useSeoMeta({ title: 'Deals & Offers' })
 
-useSeoMeta({ title: 'Deals & Offers', description: 'Exclusive deals and discounts' })
+const copied = ref('')
+const countdown = reactive({ hours: 5, mins: 23, secs: 45 })
 
-const countdown = ref({ days: '02', hours: '14', mins: '32', secs: '45' })
-let timer: any
+let timer: ReturnType<typeof setInterval>
 onMounted(() => {
     timer = setInterval(() => {
-        const end = new Date(); end.setHours(23, 59, 59, 999)
-        const diff = end.getTime() - Date.now()
-        countdown.value = {
-            days: String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0'),
-            hours: String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0'),
-            mins: String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0'),
-            secs: String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0')
-        }
+        if (countdown.secs > 0) countdown.secs--
+        else if (countdown.mins > 0) { countdown.mins--; countdown.secs = 59 }
+        else if (countdown.hours > 0) { countdown.hours--; countdown.mins = 59; countdown.secs = 59 }
     }, 1000)
 })
 onUnmounted(() => clearInterval(timer))
 
+const copyCoupon = (code: string) => {
+    navigator.clipboard.writeText(code)
+    copied.value = code
+    setTimeout(() => copied.value = '', 2000)
+}
+
 const flashDeals = [
-    { id: 1, name: 'Wireless Earbuds Pro', image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300&h=300&fit=crop', originalPrice: 99, salePrice: 39, discount: 60 },
-    { id: 2, name: 'Smart Fitness Band', image: 'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=300&h=300&fit=crop', originalPrice: 79, salePrice: 29, discount: 63 },
-    { id: 3, name: 'Portable Charger', image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=300&h=300&fit=crop', originalPrice: 49, salePrice: 19, discount: 61 },
-    { id: 4, name: 'Bluetooth Speaker', image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=300&h=300&fit=crop', originalPrice: 89, salePrice: 35, discount: 61 }
+    { id: 1, name: 'Wireless Earbuds Pro', originalPrice: 129, salePrice: 49, discount: 62, soldPercent: 78, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop' },
+    { id: 2, name: 'Smart Fitness Band', originalPrice: 89, salePrice: 29, discount: 67, soldPercent: 85, image: 'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&h=400&fit=crop' },
+    { id: 3, name: 'Bluetooth Speaker', originalPrice: 79, salePrice: 35, discount: 56, soldPercent: 62, image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop' },
+    { id: 4, name: 'Portable Charger', originalPrice: 59, salePrice: 22, discount: 63, soldPercent: 91, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop' }
 ]
 
 const coupons = [
     { code: 'SAVE20', discount: '20% OFF', description: 'On orders over $100' },
-    { code: 'FREESHIP', discount: 'Free Shipping', description: 'On all orders' },
-    { code: 'EXTRA10', discount: '$10 OFF', description: 'First order only' }
+    { code: 'FREESHIP', discount: 'Free Shipping', description: 'No minimum order' },
+    { code: 'FLASH50', discount: '$50 OFF', description: 'On orders over $200' }
 ]
 
 const todayDeals = [
-    { id: 1, name: 'Premium Wireless Headphones', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop', price: 59.99, originalPrice: 129.99 },
-    { id: 2, name: 'Smart Watch Series 5', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop', price: 149.99, originalPrice: 299.99 },
-    { id: 3, name: 'Running Shoes Ultra', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop', price: 69.99, originalPrice: 119.99 },
-    { id: 4, name: 'Designer Backpack', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop', price: 29.99, originalPrice: 79.99 }
+    { id: 1, name: 'Premium Headphones Bundle', price: 89, originalPrice: 159, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop' },
+    { id: 2, name: 'Smart Home Starter Kit', price: 149, originalPrice: 249, image: 'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=600&h=400&fit=crop' },
+    { id: 3, name: 'Designer Watch Collection', price: 199, originalPrice: 349, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop' }
 ]
 </script>

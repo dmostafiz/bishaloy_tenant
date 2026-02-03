@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-900 text-gray-300">
+  <footer class="bg-gray-900 dark:bg-gray-950 text-gray-300 transition-colors duration-300">
     <!-- Newsletter Section -->
     <div class="bg-gradient-to-r from-orange-500 to-orange-600">
       <div class="container mx-auto px-4 py-8">

@@ -1,12 +1,16 @@
 <template>
   <NuxtLayout :name="'tenant'">
-  
-      <NuxtPage />
-  
+
+    <NuxtPage />
+
   </NuxtLayout>
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
+
+// Theme initialization is handled in the Header component
+
 // const tenant = useNuxtApp().$tenant
 const data = useNuxtApp()?.$tenant
 
