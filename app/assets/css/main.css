@@ -73,14 +73,14 @@
   --color-accent-hover: 234 88 12;
 
   /* Dark Theme Backgrounds */
-  --color-bg: 17 24 39;
+  --color-bg: 3 7 18;
+  /* gray-950 */
+  --color-bg-alt: 17 24 39;
   /* gray-900 */
-  --color-bg-alt: 31 41 55;
+  --color-bg-card: 17 24 39;
+  /* gray-900 */
+  --color-bg-elevated: 31 41 55;
   /* gray-800 */
-  --color-bg-card: 31 41 55;
-  /* gray-800 */
-  --color-bg-elevated: 55 65 81;
-  /* gray-700 */
 
   /* Dark Theme Text */
   --color-text: 249 250 251;

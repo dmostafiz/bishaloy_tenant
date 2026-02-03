@@ -1,11 +1,11 @@
 <template>
-    <header class="bg-theme-elevated sticky text-white top-0 z-50 shadow-lg">
+    <header class="bg-theme-elevated sticky text-theme top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4">
             <!-- Top Row -->
             <div class="flex items-center justify-between py-3 gap-2">
                 <!-- Logo & Menu Button -->
                 <div class="flex items-center gap-3">
-                    <button @click="toggleMobileMenu" class="lg:hidden text-white hover:text-primary transition">
+                    <button @click="toggleMobileMenu" class="lg:hidden text-theme hover:text-primary transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
@@ -49,7 +49,7 @@
                 <!-- Right Side Icons -->
                 <div class="flex items-center gap-2 sm:gap-4">
                     <!-- Mobile Search Toggle -->
-                    <button @click="toggleMobileSearch" class="sm:hidden text-white hover:text-primary transition">
+                    <button @click="toggleMobileSearch" class="sm:hidden text-theme hover:text-primary transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -86,8 +86,7 @@
                                         </button>
                                     </NuxtLink>
                                     <p class="text-xs text-gray-500 mt-2 text-center">
-                                        New customer? <NuxtLink to="/auth/register"
-                                            class="text-primary hover:underline"
+                                        New customer? <NuxtLink to="/auth/register" class="text-primary hover:underline"
                                             @click="showAccountDropdown = false">Start here</NuxtLink>
                                     </p>
                                 </div>
@@ -145,8 +144,7 @@
                     </div>
 
                     <!-- Mobile Account Button -->
-                    <button @click="toggleAccountDropdown"
-                        class="lg:hidden text-white hover:text-primary transition">
+                    <button @click="toggleAccountDropdown" class="lg:hidden text-white hover:text-primary transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>

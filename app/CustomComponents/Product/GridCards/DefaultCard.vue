@@ -1,7 +1,7 @@
 <template>
     <div
-        class="bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
-        <div class="relative overflow-hidden bg-gray-50">
+        class="bg-theme-card rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
+        <div class="relative overflow-hidden bg-theme-elevated">
             <img :src="product?.image" width="100%" height="auto" alt="product.name"
                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
             <div
@@ -28,8 +28,8 @@
             </button>
         </div>
         <div class="p-4">
-            <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">{{ product?.category }}</div>
-            <h3 class="font-bold text-lg mb-2 line-clamp-2 text-gray-800 group-hover:text-primary transition">
+            <div class="text-xs text-theme-muted uppercase tracking-wide mb-1">{{ product?.category }}</div>
+            <h3 class="font-bold text-lg mb-2 line-clamp-2 text-theme group-hover:text-primary transition">
                 {{ product?.name }}</h3>
             <div class="flex items-center mb-3">
                 <div class="flex items-center">
@@ -40,12 +40,13 @@
                 <span class="text-gray-400 text-xs ml-2">({{ product?.reviews ?? 0 }})</span>
             </div>
             <div class="flex items-baseline gap-2 mb-3">
-                <span class="text-2xl font-bold text-gray-900">{{ product?.price }}</span>
-                <span v-if="product?.originalPrice" class="text-sm text-gray-400 line-through">{{ product?.originalPrice
-                }}</span>
+                <span class="text-2xl font-bold text-theme">{{ product?.price }}</span>
+                <span v-if="product?.originalPrice" class="text-sm text-theme-light line-through">{{
+                    product?.originalPrice
+                    }}</span>
             </div>
             <button onclick="addToCart(${product.id})"
-                class="w-full bg-theme-elevated hover:bg-primary text-white py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                class="w-full bg-theme-elevated hover:bg-primary text-theme hover:text-white py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
                 Add to Cart
             </button>
         </div>

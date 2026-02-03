@@ -1,6 +1,5 @@
 <template>
-    <div
-        class="bg-white shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
+    <div class="bg-white shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
         <div class="relative overflow-hidden bg-gray-50">
             <img :src="product.image" alt="product.name" width="100%" height="auto"
                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
@@ -45,7 +44,7 @@
                     <span class="text-sm text-gray-400 line-through">{{ product?.originalPrice }}</span>
                 </div>
                 <button onclick="addToCart(${product.id})"
-                    class="px-3 bg-theme-elevated hover:bg-primary text-white py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                    class="px-3 bg-theme-elevated hover:bg-primary text-theme hover:text-white py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
                     Add to Cart
                 </button>
             </div>
