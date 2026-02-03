@@ -1,7 +1,8 @@
 <template>
 
+    <!-- {{ $tenant?.layoutComponents?.carousel }} -->
 
-    <CustomComponentResolver :name="$tenant?.components?.carousel" class="mb-10" />
+    <CustomComponentResolver :name="$tenant?.layoutComponents?.carousel" class="mb-10" />
 
     <div class="flex flex-col gap-10" v-for="section, i in sections" :key="i">
 
@@ -29,7 +30,9 @@
                         <div v-for="(product, i) in products.filter(p =>
                             section.content.products.includes(p.id)
                         )" :key="i">
-                            <CustomComponentResolver :name="tenant?.components?.productCard || 'Product/GridCards/DefaultCard'" :product="product" />
+                            <CustomComponentResolver
+                                :name="tenant?.components?.productCard || 'Product/GridCards/DefaultCard'"
+                                :product="product" />
                         </div>
                     </div>
                 </section>

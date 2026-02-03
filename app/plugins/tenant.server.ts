@@ -1,4 +1,5 @@
 import { useTenant } from '~/composables/useTenant'
+import type { LayoutComponents, Tenant } from '~~/types/tenant'
 
 export default defineNuxtPlugin(async () => {
 
@@ -19,7 +20,7 @@ export default defineNuxtPlugin(async () => {
 
   return {
     provide: {
-      tenant: tenantState.value,
+      tenant: { ...tenantState.value, LayoutComponents: tenantState.value?.LayoutComponents as LayoutComponents } as Tenant,
     },
   }
 })
