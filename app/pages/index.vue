@@ -6,7 +6,7 @@
 
     <div class="flex flex-col gap-10" v-for="section, i in sections" :key="i">
 
-        <div v-if="section.type == 'titleSection'"
+        <div v-if="section.type == 'titleSection'" class="transition-colors duration-300 dark:!bg-gray-950"
             :style="{ 'background-color': section.bgColor, 'padding': `${section?.padding?.top}px ${section.padding?.bottom}px ${section.padding?.left}px ${section.padding?.right}px` }">
             <div class="container mx-auto px-4">
                 <section class="mb-12">
