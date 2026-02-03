@@ -39,15 +39,9 @@
             </div>
         </div>
 
-        <div v-if="section.type == 'hero'" class="w-full py-10 bg-cover bg-no-repeat"
-            :style="{ 'height': `${section.height}px`, 'background-image': `url(${section.bgImageUrl})`, 'padding': `${section?.padding?.top}px ${section.padding?.bottom}px ${section.padding?.left}px ${section.padding?.right}px` }">
-            <div :dir="section.contentDirection" class="container mx-auto px-4">
-                <div class="max-w-lg">
-                    <h1 class="font-bold text-4xl mb-2">{{ section.title }}</h1>
-                    <p class="text-xl">{{ section.subTitle }}</p>
-                </div>
-            </div>
-        </div>
+        <!-- Hero Section Component -->
+        <CustomComponentResolver v-if="section.type == 'hero'" :name="tenant?.components?.hero || 'Hero/DefaultHero'"
+            :section="section" />
 
     </div>
 
