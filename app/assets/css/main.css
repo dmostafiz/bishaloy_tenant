@@ -176,6 +176,121 @@ body {
   border-color: rgb(var(--color-border-light));
 }
 
+/* Primary Color Backgrounds */
+.bg-primary {
+  background-color: rgb(var(--color-primary));
+}
+
+.bg-primary-hover {
+  background-color: rgb(var(--color-primary-hover));
+}
+
+.bg-primary-muted {
+  background-color: rgb(var(--color-primary-muted));
+}
+
+/* Accent Color Backgrounds */
+.bg-accent {
+  background-color: rgb(var(--color-accent));
+}
+
+.bg-accent-hover {
+  background-color: rgb(var(--color-accent-hover));
+}
+
+/* Primary Color Hover Classes */
+.hover\:bg-primary:hover {
+  background-color: rgb(var(--color-primary));
+}
+
+.hover\:bg-primary-hover:hover {
+  background-color: rgb(var(--color-primary-hover));
+}
+
+.hover\:text-primary:hover {
+  color: rgb(var(--color-primary));
+}
+
+.hover\:text-accent:hover {
+  color: rgb(var(--color-accent));
+}
+
+.hover\:border-primary:hover {
+  border-color: rgb(var(--color-primary));
+}
+
+/* Text Accent */
+.text-accent {
+  color: rgb(var(--color-accent));
+}
+
+/* Status Color Utilities */
+.bg-success {
+  background-color: rgb(var(--color-success));
+}
+
+.bg-success-muted {
+  background-color: rgb(var(--color-success-muted));
+}
+
+.text-success {
+  color: rgb(var(--color-success));
+}
+
+.bg-warning {
+  background-color: rgb(var(--color-warning));
+}
+
+.bg-warning-muted {
+  background-color: rgb(var(--color-warning-muted));
+}
+
+.text-warning {
+  color: rgb(var(--color-warning));
+}
+
+.bg-error {
+  background-color: rgb(var(--color-error));
+}
+
+.bg-error-muted {
+  background-color: rgb(var(--color-error-muted));
+}
+
+.text-error {
+  color: rgb(var(--color-error));
+}
+
+.bg-info {
+  background-color: rgb(var(--color-info));
+}
+
+.bg-info-muted {
+  background-color: rgb(var(--color-info-muted));
+}
+
+.text-info {
+  color: rgb(var(--color-info));
+}
+
+/* Header/Navbar Background (uses elevated or card in dark, contrasting in light) */
+.bg-header {
+  background-color: rgb(var(--color-bg-elevated));
+}
+
+.dark .bg-header {
+  background-color: rgb(var(--color-bg-alt));
+}
+
+/* Ring Colors for Focus States */
+.ring-primary {
+  --tw-ring-color: rgb(var(--color-primary) / 0.5);
+}
+
+.focus\:ring-primary:focus {
+  --tw-ring-color: rgb(var(--color-primary) / 0.5);
+}
+
 /* Shadows */
 .shadow-theme-sm {
   box-shadow: var(--shadow-sm);

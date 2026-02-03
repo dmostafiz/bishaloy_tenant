@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
         <div class="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-16">
             <div class="container mx-auto px-4 text-center">
                 <span class="inline-block px-4 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-semibold mb-4">✨
@@ -12,7 +12,7 @@
         <div class="container mx-auto px-4 py-12">
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div v-for="p in products" :key="p.id"
-                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                    class="bg-theme-card rounded-2xl shadow-theme-lg overflow-hidden group hover:-translate-y-1 transition-all duration-300">
                     <div class="relative aspect-square overflow-hidden">
                         <img :src="p.image" :alt="p.name"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -20,13 +20,13 @@
                             NEW</div>
                     </div>
                     <div class="p-4">
-                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">{{ p.category }}</p>
+                        <p class="text-xs text-theme-muted mb-1">{{ p.category }}</p>
                         <h4
-                            class="font-medium text-gray-900 dark:text-white mb-2 group-hover:text-orange-500 transition">
+                            class="font-medium text-theme mb-2 group-hover:text-primary transition">
                             {{ p.name }}</h4>
                         <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-gray-900 dark:text-white">${{ p.price }}</span>
-                            <button class="p-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition">
+                            <span class="text-xl font-bold text-theme">${{ p.price }}</span>
+                            <button class="p-2 bg-primary hover:bg-accent text-white rounded-lg transition">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 4v16m8-8H4" />

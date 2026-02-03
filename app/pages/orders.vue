@@ -1,6 +1,6 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div class="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 text-white py-10">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
+        <div class="bg-theme-elevated text-white py-10">
             <div class="container mx-auto px-4">
                 <h1 class="text-3xl font-bold">My Orders</h1>
                 <p class="text-gray-400 mt-1">Track and manage your orders</p>
@@ -11,7 +11,7 @@
             <!-- Status Filters -->
             <div class="flex flex-wrap gap-2 mb-8">
                 <button v-for="status in statuses" :key="status" @click="activeFilter = status"
-                    :class="activeFilter === status ? 'bg-orange-500 text-white' : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:border-orange-500'"
+                    :class="activeFilter === status ? 'bg-primary text-white' : 'bg-theme-card text-gray-600 dark:text-gray-300 hover:border-primary'"
                     class="px-5 py-2 rounded-full font-medium border border-gray-200 dark:border-gray-700 transition-colors">
                     {{ status }}
                 </button>
@@ -20,13 +20,13 @@
             <!-- Orders List -->
             <div class="space-y-6">
                 <div v-for="order in filteredOrders" :key="order.id"
-                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 overflow-hidden">
+                    class="bg-theme-card rounded-2xl shadow-theme-lg overflow-hidden">
                     <!-- Header -->
                     <div
                         class="px-6 py-4 bg-gray-50 dark:bg-gray-700/50 border-b border-gray-100 dark:border-gray-700 flex flex-wrap justify-between items-center gap-4">
                         <div>
-                            <span class="text-gray-500 dark:text-gray-400 text-sm">Order #</span>
-                            <span class="font-semibold text-gray-900 dark:text-white ml-1">{{ order.id }}</span>
+                            <span class="text-theme-muted text-sm">Order #</span>
+                            <span class="font-semibold text-theme ml-1">{{ order.id }}</span>
                         </div>
                         <span :class="statusColors[order.status]"
                             class="px-4 py-1.5 rounded-full text-sm font-medium">{{ order.status }}</span>
@@ -38,26 +38,26 @@
                             class="flex gap-4 py-3 border-b border-gray-100 dark:border-gray-700 last:border-0">
                             <img :src="item.image" :alt="item.name" class="w-20 h-20 rounded-xl object-cover">
                             <div class="flex-1">
-                                <h4 class="font-medium text-gray-900 dark:text-white">{{ item.name }}</h4>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">Qty: {{ item.quantity }}</p>
+                                <h4 class="font-medium text-theme">{{ item.name }}</h4>
+                                <p class="text-sm text-theme-muted">Qty: {{ item.quantity }}</p>
                             </div>
-                            <p class="font-semibold text-gray-900 dark:text-white">${{ item.price }}</p>
+                            <p class="font-semibold text-theme">${{ item.price }}</p>
                         </div>
                     </div>
 
                     <!-- Footer -->
                     <div
                         class="px-6 py-4 bg-gray-50 dark:bg-gray-700/50 flex flex-wrap justify-between items-center gap-4">
-                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                        <div class="text-sm text-theme-muted">
                             Placed on {{ order.date }} · <span
-                                class="font-semibold text-gray-900 dark:text-white">Total: ${{ order.total }}</span>
+                                class="font-semibold text-theme">Total: ${{ order.total }}</span>
                         </div>
                         <div class="flex gap-3">
                             <button v-if="order.status === 'Shipped'"
                                 class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition">Track
                                 Order</button>
                             <button
-                                class="px-4 py-2 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-orange-500 hover:text-orange-500 rounded-lg font-medium transition">Reorder</button>
+                                class="px-4 py-2 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-primary hover:text-primary rounded-lg font-medium transition">Reorder</button>
                         </div>
                     </div>
                 </div>
@@ -72,9 +72,9 @@
                             d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                     </svg>
                 </div>
-                <p class="text-gray-500 dark:text-gray-400">No orders found</p>
+                <p class="text-theme-muted">No orders found</p>
                 <NuxtLink to="/shop"
-                    class="inline-block mt-4 px-6 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition">
+                    class="inline-block mt-4 px-6 py-2 bg-primary text-white rounded-lg font-medium hover:bg-accent transition">
                     Start Shopping</NuxtLink>
             </div>
         </div>

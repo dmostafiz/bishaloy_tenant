@@ -12,11 +12,11 @@
                 <section class="mb-12">
                     <div class="flex justify-between items-center mb-6">
                         <div>
-                            <h2 class="text-3xl font-bold text-gray-900">{{ section.title }}</h2>
-                            <p class="text-gray-600 mt-1">{{ section.subTitle }}</p>
+                            <h2 class="text-3xl font-bold text-theme">{{ section.title }}</h2>
+                            <p class="text-theme-muted mt-1">{{ section.subTitle }}</p>
                         </div>
                         <button v-if="section.showViewMoreLink" @click="navigateTo(section.viewMoreLinkUrl)"
-                            class="text-orange-500 hover:text-orange-600 font-semibold flex items-center gap-2">
+                            class="text-primary hover:text-accent font-semibold flex items-center gap-2">
                             {{ section.viewMoreLinkText }}
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">

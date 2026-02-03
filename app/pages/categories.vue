@@ -1,10 +1,10 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
         <!-- Hero -->
         <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-12">
             <div class="container mx-auto px-4 text-center">
                 <h1 class="text-3xl md:text-4xl font-bold animate-fade-in-up">Shop by Category</h1>
-                <p class="text-orange-100 mt-2">Find exactly what you're looking for</p>
+                <p class="text-primary mt-2">Find exactly what you're looking for</p>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-6">
                         <h3 class="text-2xl font-bold text-white mb-1">{{ cat.name }}</h3>
-                        <p class="text-orange-300 group-hover:text-orange-400 transition flex items-center gap-1">
+                        <p class="text-primary group-hover:text-primary transition flex items-center gap-1">
                             Shop Now
                             <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
@@ -32,17 +32,17 @@
             </div>
 
             <!-- All Categories Grid -->
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">All Categories</h2>
+            <h2 class="text-2xl font-bold text-theme mb-8">All Categories</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 <NuxtLink v-for="cat in allCategories" :key="cat.name" :to="`/shop?category=${cat.name}`"
-                    class="group p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-md dark:shadow-gray-900/50 hover:shadow-xl dark:hover:shadow-gray-900/70 text-center transition-all duration-300 hover:-translate-y-1">
+                    class="group p-6 bg-theme-card rounded-2xl shadow-md dark:shadow-gray-900/50 hover:shadow-xl dark:hover:shadow-gray-900/70 text-center transition-all duration-300 hover:-translate-y-1">
                     <div
-                        class="w-14 h-14 mx-auto mb-3 flex items-center justify-center text-3xl bg-orange-100 dark:bg-orange-900/30 rounded-2xl group-hover:scale-110 transition-transform">
+                        class="w-14 h-14 mx-auto mb-3 flex items-center justify-center text-3xl bg-primary-muted dark:bg-orange-900/30 rounded-2xl group-hover:scale-110 transition-transform">
                         {{ cat.icon }}
                     </div>
-                    <h4 class="font-semibold text-gray-800 dark:text-white group-hover:text-orange-500 transition">{{
+                    <h4 class="font-semibold text-gray-800 dark:text-white group-hover:text-primary transition">{{
                         cat.name }}</h4>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ cat.count }} items</p>
+                    <p class="text-sm text-theme-muted">{{ cat.count }} items</p>
                 </NuxtLink>
             </div>
         </div>

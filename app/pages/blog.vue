@@ -1,9 +1,9 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div class="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 text-white py-12">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
+        <div class="bg-theme-elevated text-theme py-12">
             <div class="container mx-auto px-4">
                 <h1 class="text-3xl font-bold mb-2">Blog</h1>
-                <p class="text-gray-400">News, tips, and insights</p>
+                <p class="text-theme-muted">News, tips, and insights</p>
             </div>
         </div>
 
@@ -11,13 +11,13 @@
             <!-- Featured -->
             <div class="mb-12">
                 <div
-                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 overflow-hidden md:flex hover:shadow-xl transition-shadow">
+                    class="bg-theme-card rounded-2xl shadow-theme-lg overflow-hidden md:flex hover:shadow-theme-xl transition-shadow">
                     <img :src="featured.image" :alt="featured.title" class="md:w-1/2 h-64 md:h-auto object-cover">
                     <div class="p-8 md:w-1/2 flex flex-col justify-center">
-                        <span class="text-orange-500 text-sm font-semibold">{{ featured.category }}</span>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-2 mb-4">{{ featured.title }}</h2>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4">{{ featured.excerpt }}</p>
-                        <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+                        <span class="text-primary text-sm font-semibold">{{ featured.category }}</span>
+                        <h2 class="text-2xl font-bold text-theme mt-2 mb-4">{{ featured.title }}</h2>
+                        <p class="text-theme-muted mb-4">{{ featured.excerpt }}</p>
+                        <div class="flex items-center gap-3 text-sm text-theme-light">
                             <span>{{ featured.author }}</span>
                             <span>•</span>
                             <span>{{ featured.date }}</span>
@@ -29,18 +29,17 @@
             <!-- Posts Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="post in posts" :key="post.id"
-                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                    class="bg-theme-card rounded-2xl shadow-theme-lg overflow-hidden group hover:-translate-y-1 transition-all duration-300">
                     <div class="aspect-video overflow-hidden">
                         <img :src="post.image" :alt="post.title"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-5">
-                        <span class="text-orange-500 text-xs font-semibold">{{ post.category }}</span>
-                        <h3
-                            class="font-bold mt-1 mb-2 text-gray-900 dark:text-white group-hover:text-orange-500 transition">
+                        <span class="text-primary text-xs font-semibold">{{ post.category }}</span>
+                        <h3 class="font-bold mt-1 mb-2 text-theme group-hover:text-primary transition">
                             {{ post.title }}</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{{ post.excerpt }}</p>
-                        <p class="text-xs text-gray-400 mt-3">{{ post.date }}</p>
+                        <p class="text-sm text-theme-muted line-clamp-2">{{ post.excerpt }}</p>
+                        <p class="text-xs text-theme-light mt-3">{{ post.date }}</p>
                     </div>
                 </div>
             </div>

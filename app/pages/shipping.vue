@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
         <div class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-12">
             <div class="container mx-auto px-4 text-center">
                 <span class="text-4xl mb-4 block">🚚</span>
@@ -12,25 +12,25 @@
             <!-- Shipping Options -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 <div v-for="option in shippingOptions" :key="option.name"
-                    class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg dark:shadow-gray-900/50 text-center hover:-translate-y-1 transition-all duration-300">
+                    class="bg-theme-card rounded-2xl p-6 shadow-theme-lg text-center hover:-translate-y-1 transition-all duration-300">
                     <div class="text-4xl mb-4">{{ option.icon }}</div>
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{{ option.name }}</h3>
-                    <p class="text-2xl font-bold text-orange-500 mb-2">{{ option.price }}</p>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm">{{ option.time }}</p>
+                    <h3 class="text-lg font-bold text-theme mb-2">{{ option.name }}</h3>
+                    <p class="text-2xl font-bold text-primary mb-2">{{ option.price }}</p>
+                    <p class="text-theme-muted text-sm">{{ option.time }}</p>
                 </div>
             </div>
 
             <!-- Info Sections -->
             <div class="grid md:grid-cols-2 gap-8">
                 <div v-for="section in sections" :key="section.title"
-                    class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg dark:shadow-gray-900/50">
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                    class="bg-theme-card rounded-2xl p-6 shadow-theme-lg">
+                    <h3 class="text-lg font-bold text-theme mb-4 flex items-center gap-2">
                         <span class="text-xl">{{ section.icon }}</span>
                         {{ section.title }}
                     </h3>
                     <ul class="space-y-2">
                         <li v-for="item in section.items" :key="item"
-                            class="flex items-start gap-2 text-gray-600 dark:text-gray-400">
+                            class="flex items-start gap-2 text-theme-muted">
                             <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"

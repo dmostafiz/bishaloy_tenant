@@ -3,20 +3,20 @@
         class="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center px-4 py-12 transition-colors duration-300">
         <div class="w-full max-w-md">
             <div class="text-center mb-8">
-                <NuxtLink to="/" class="text-3xl font-bold text-orange-500">ShopNow</NuxtLink>
-                <h1 class="text-2xl font-bold text-gray-900 dark:text-white mt-6">Reset Password</h1>
-                <p class="text-gray-500 dark:text-gray-400 mt-1">Enter your email to receive a reset link</p>
+                <NuxtLink to="/" class="text-3xl font-bold text-primary">ShopNow</NuxtLink>
+                <h1 class="text-2xl font-bold text-theme mt-6">Reset Password</h1>
+                <p class="text-theme-muted mt-1">Enter your email to receive a reset link</p>
             </div>
 
-            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-900/50 p-8">
+            <div class="bg-theme-card rounded-2xl shadow-xl dark:shadow-gray-900/50 p-8">
                 <form v-if="!sent" @submit.prevent="handleSubmit" class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                        <label class="block text-sm font-medium text-theme-muted mb-1">Email</label>
                         <input v-model="email" type="email" required
-                            class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500">
+                            class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-theme focus:ring-2 focus:ring-primary">
                     </div>
                     <button type="submit" :disabled="loading"
-                        class="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition disabled:opacity-50">
+                        class="w-full py-3 bg-primary hover:bg-accent text-white font-semibold rounded-xl transition disabled:opacity-50">
                         {{ loading ? 'Sending...' : 'Send Reset Link' }}
                     </button>
                 </form>
@@ -28,11 +28,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400">Check your email for the reset link</p>
+                    <p class="text-theme-muted">Check your email for the reset link</p>
                 </div>
 
                 <div class="mt-6 text-center text-sm">
-                    <NuxtLink to="/auth/login" class="text-orange-500 hover:underline font-medium">Back to Login
+                    <NuxtLink to="/auth/login" class="text-primary hover:underline font-medium">Back to Login
                     </NuxtLink>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
         <!-- Countdown Hero -->
         <div class="bg-gradient-to-r from-red-600 via-orange-500 to-red-600 text-white py-10 relative overflow-hidden">
             <div class="absolute inset-0 bg-[url('data:image/svg+xml,...')] opacity-10"></div>
@@ -7,12 +7,12 @@
                 <span class="inline-block px-4 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-semibold mb-4">⚡
                     Limited Time</span>
                 <h1 class="text-3xl md:text-5xl font-bold mb-4">Flash Deals</h1>
-                <p class="text-lg text-orange-100 mb-6">Up to 70% off - Hurry, ends soon!</p>
+                <p class="text-lg text-primary mb-6">Up to 70% off - Hurry, ends soon!</p>
                 <div class="flex justify-center gap-4">
                     <div v-for="(unit, label) in countdown" :key="label"
                         class="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px]">
                         <div class="text-3xl font-bold">{{ String(unit).padStart(2, '0') }}</div>
-                        <div class="text-xs text-orange-200 uppercase">{{ label }}</div>
+                        <div class="text-xs text-primary uppercase">{{ label }}</div>
                     </div>
                 </div>
             </div>
@@ -21,13 +21,13 @@
         <div class="container mx-auto px-4 py-12">
             <!-- Flash Deals -->
             <section class="mb-16">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                <h2 class="text-2xl font-bold text-theme mb-6 flex items-center gap-2">
                     <span class="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center text-white">⚡</span>
                     Flash Deals
                 </h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div v-for="deal in flashDeals" :key="deal.id"
-                        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                        class="bg-theme-card rounded-2xl shadow-theme-lg overflow-hidden group hover:-translate-y-1 transition-all duration-300">
                         <div class="relative aspect-square overflow-hidden">
                             <img :src="deal.image" :alt="deal.name"
                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -47,7 +47,7 @@
                                     class="absolute inset-y-0 left-0 bg-gradient-to-r from-orange-500 to-red-500 rounded-full">
                                 </div>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ deal.soldPercent }}% sold</p>
+                            <p class="text-xs text-theme-muted mt-1">{{ deal.soldPercent }}% sold</p>
                         </div>
                     </div>
                 </div>
@@ -55,18 +55,18 @@
 
             <!-- Coupon Codes -->
             <section class="mb-16">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">🎟️ Exclusive Coupons</h2>
+                <h2 class="text-2xl font-bold text-theme mb-6">🎟️ Exclusive Coupons</h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div v-for="coupon in coupons" :key="coupon.code"
                         class="bg-gradient-to-r from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 rounded-2xl p-5 text-white relative overflow-hidden group">
                         <div class="absolute -right-4 -bottom-4 text-8xl opacity-20">🏷️</div>
                         <div class="relative">
                             <p class="text-3xl font-bold mb-1">{{ coupon.discount }}</p>
-                            <p class="text-sm text-orange-100 mb-3">{{ coupon.description }}</p>
+                            <p class="text-sm text-primary mb-3">{{ coupon.description }}</p>
                             <div class="flex items-center gap-2">
                                 <code class="px-3 py-1 bg-white/20 rounded font-mono text-sm">{{ coupon.code }}</code>
                                 <button @click="copyCoupon(coupon.code)"
-                                    class="px-3 py-1 bg-white text-orange-500 rounded font-semibold text-sm hover:bg-orange-50 transition">
+                                    class="px-3 py-1 bg-white text-primary rounded font-semibold text-sm hover:bg-primary-muted transition">
                                     {{ copied === coupon.code ? '✓ Copied' : 'Copy' }}
                                 </button>
                             </div>
@@ -77,10 +77,10 @@
 
             <!-- Today's Deals -->
             <section>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">🔥 Today's Best Deals</h2>
+                <h2 class="text-2xl font-bold text-theme mb-6">🔥 Today's Best Deals</h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div v-for="deal in todayDeals" :key="deal.id"
-                        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        class="bg-theme-card rounded-2xl shadow-theme-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
                         <div class="relative aspect-video overflow-hidden">
                             <img :src="deal.image" :alt="deal.name"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -89,11 +89,11 @@
                             <h4 class="font-semibold text-gray-800 dark:text-white mb-2">{{ deal.name }}</h4>
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-2">
-                                    <span class="text-xl font-bold text-orange-500">${{ deal.price }}</span>
+                                    <span class="text-xl font-bold text-primary">${{ deal.price }}</span>
                                     <span class="text-sm text-gray-400 line-through">${{ deal.originalPrice }}</span>
                                 </div>
                                 <button
-                                    class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-semibold transition">
+                                    class="px-4 py-2 bg-primary hover:bg-accent text-white rounded-lg font-semibold transition">
                                     Shop
                                 </button>
                             </div>

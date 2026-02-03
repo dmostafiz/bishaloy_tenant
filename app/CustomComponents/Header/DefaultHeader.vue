@@ -1,11 +1,11 @@
 <template>
-    <header class="bg-gray-900 sticky text-white top-0 z-50 shadow-lg">
+    <header class="bg-theme-elevated sticky text-white top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4">
             <!-- Top Row -->
             <div class="flex items-center justify-between py-3 gap-2">
                 <!-- Logo & Menu Button -->
                 <div class="flex items-center gap-3">
-                    <button @click="toggleMobileMenu" class="lg:hidden text-white hover:text-orange-400 transition">
+                    <button @click="toggleMobileMenu" class="lg:hidden text-white hover:text-primary transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
@@ -13,13 +13,13 @@
                     </button>
                     <NuxtLink to="/">
                         <h1
-                            class="text-xl sm:text-2xl font-bold cursor-pointer hover:text-orange-400 transition whitespace-nowrap">
+                            class="text-xl sm:text-2xl font-bold cursor-pointer hover:text-primary transition whitespace-nowrap">
                             {{ $tenant?.name || 'Store' }}
                         </h1>
                     </NuxtLink>
                     <div class="hidden xl:flex items-center text-xs ml-4">
                         <button @click="showLocationModal = true"
-                            class="cursor-pointer hover:text-orange-400 transition flex items-center gap-1">
+                            class="cursor-pointer hover:text-primary transition flex items-center gap-1">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -37,7 +37,7 @@
                         <input v-model="searchQuery" type="text" placeholder="Search for products..."
                             class="w-full rounded-xl px-4 py-2 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 text-sm pr-12">
                         <button type="submit"
-                            class="absolute right-0 top-0 bg-orange-400 hover:bg-orange-500 px-4 py-2 rounded-r-xl transition">
+                            class="absolute right-0 top-0 bg-orange-400 hover:bg-primary px-4 py-2 rounded-r-xl transition">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -49,7 +49,7 @@
                 <!-- Right Side Icons -->
                 <div class="flex items-center gap-2 sm:gap-4">
                     <!-- Mobile Search Toggle -->
-                    <button @click="toggleMobileSearch" class="sm:hidden text-white hover:text-orange-400 transition">
+                    <button @click="toggleMobileSearch" class="sm:hidden text-white hover:text-primary transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -59,7 +59,7 @@
                     <!-- Account Dropdown (Desktop) -->
                     <div class="relative hidden lg:block">
                         <button @click="toggleAccountDropdown"
-                            class="cursor-pointer hover:text-orange-400 transition text-left">
+                            class="cursor-pointer hover:text-primary transition text-left">
                             <div class="text-xs">Hello, {{ isLoggedIn ? userName : 'Sign in' }}</div>
                             <div class="font-bold text-sm flex items-center gap-1">
                                 Account
@@ -81,13 +81,13 @@
                                 <div v-if="!isLoggedIn" class="px-4 py-3 border-b border-gray-100">
                                     <NuxtLink to="/auth/login" @click="showAccountDropdown = false">
                                         <button
-                                            class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg transition">
+                                            class="w-full bg-primary hover:bg-accent text-white font-semibold py-2 px-4 rounded-lg transition">
                                             Sign In
                                         </button>
                                     </NuxtLink>
                                     <p class="text-xs text-gray-500 mt-2 text-center">
                                         New customer? <NuxtLink to="/auth/register"
-                                            class="text-orange-500 hover:underline"
+                                            class="text-primary hover:underline"
                                             @click="showAccountDropdown = false">Start here</NuxtLink>
                                     </p>
                                 </div>
@@ -146,7 +146,7 @@
 
                     <!-- Mobile Account Button -->
                     <button @click="toggleAccountDropdown"
-                        class="lg:hidden text-white hover:text-orange-400 transition">
+                        class="lg:hidden text-white hover:text-primary transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -154,13 +154,13 @@
                     </button>
 
                     <!-- Orders (Desktop) -->
-                    <NuxtLink to="/orders" class="cursor-pointer hover:text-orange-400 transition hidden md:block">
+                    <NuxtLink to="/orders" class="cursor-pointer hover:text-primary transition hidden md:block">
                         <div class="text-xs">Returns</div>
                         <div class="font-bold text-sm">& Orders</div>
                     </NuxtLink>
 
                     <!-- Dark Mode Toggle -->
-                    <button @click="toggleTheme" class="p-2 hover:text-orange-400 transition" title="Toggle theme">
+                    <button @click="toggleTheme" class="p-2 hover:text-primary transition" title="Toggle theme">
                         <svg v-if="isDark" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -172,14 +172,14 @@
                     </button>
 
                     <!-- Cart Button -->
-                    <button @click="toggleCart" class="relative cursor-pointer hover:text-orange-400 transition">
+                    <button @click="toggleCart" class="relative cursor-pointer hover:text-primary transition">
                         <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
                             </path>
                         </svg>
                         <span
-                            class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+                            class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
                             :class="{ 'animate-bounce': cartBounce }">
                             {{ cartCount }}
                         </span>
@@ -198,7 +198,7 @@
                             placeholder="Search for products..."
                             class="w-full px-4 py-2 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 text-sm pr-12">
                         <button type="submit"
-                            class="absolute right-0 top-0 bg-orange-400 hover:bg-orange-500 px-4 py-2 rounded-r-xl transition">
+                            class="absolute right-0 top-0 bg-orange-400 hover:bg-primary px-4 py-2 rounded-r-xl transition">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -223,11 +223,11 @@
         enter-to-class="translate-x-0" leave-active-class="transition ease-in duration-200 transform"
         leave-from-class="translate-x-0" leave-to-class="-translate-x-full">
         <div v-if="showMobileMenu"
-            class="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-gray-900 z-50 shadow-2xl lg:hidden overflow-y-auto">
+            class="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-theme-elevated z-50 shadow-2xl lg:hidden overflow-y-auto">
             <!-- Menu Header -->
             <div class="flex items-center justify-between p-4 border-b border-gray-700">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -235,11 +235,11 @@
                     </div>
                     <div class="text-white">
                         <div class="text-sm">Hello, {{ isLoggedIn ? userName : 'Guest' }}</div>
-                        <NuxtLink v-if="!isLoggedIn" to="/auth/login" class="text-orange-400 text-sm font-semibold"
+                        <NuxtLink v-if="!isLoggedIn" to="/auth/login" class="text-primary text-sm font-semibold"
                             @click="showMobileMenu = false">Sign In</NuxtLink>
                     </div>
                 </div>
-                <button @click="showMobileMenu = false" class="text-white hover:text-orange-400 transition">
+                <button @click="showMobileMenu = false" class="text-white hover:text-primary transition">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
@@ -336,7 +336,7 @@
         <div v-if="showCart"
             class="fixed top-0 right-0 h-full w-96 max-w-[90vw] bg-white z-50 shadow-2xl flex flex-col">
             <!-- Cart Header -->
-            <div class="flex items-center justify-between p-4 border-b bg-gray-900 text-white">
+            <div class="flex items-center justify-between p-4 border-b bg-theme-elevated text-white">
                 <h2 class="text-lg font-bold flex items-center gap-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -344,7 +344,7 @@
                     </svg>
                     Shopping Cart ({{ cartCount }})
                 </h2>
-                <button @click="showCart = false" class="hover:text-orange-400 transition">
+                <button @click="showCart = false" class="hover:text-primary transition">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
@@ -363,7 +363,7 @@
                     <p class="text-lg font-medium">Your cart is empty</p>
                     <p class="text-sm">Add some products to get started!</p>
                     <button @click="showCart = false; navigateTo('/shop')"
-                        class="mt-4 px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
+                        class="mt-4 px-6 py-2 bg-primary text-white rounded-lg hover:bg-accent transition">
                         Continue Shopping
                     </button>
                 </div>
@@ -373,7 +373,7 @@
                         <img :src="item.image" :alt="item.name" class="w-20 h-20 object-cover rounded-lg">
                         <div class="flex-1">
                             <h4 class="font-medium text-gray-900 text-sm">{{ item.name }}</h4>
-                            <p class="text-orange-500 font-bold">${{ item.price.toFixed(2) }}</p>
+                            <p class="text-primary font-bold">${{ item.price.toFixed(2) }}</p>
                             <div class="flex items-center gap-2 mt-2">
                                 <button @click="updateCartQuantity(item.id, item.quantity - 1)"
                                     class="w-6 h-6 bg-gray-200 rounded flex items-center justify-center hover:bg-gray-300 transition">
@@ -404,7 +404,7 @@
                 </div>
                 <NuxtLink to="/checkout" @click="showCart = false">
                     <button
-                        class="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg transition flex items-center justify-center gap-2">
+                        class="w-full py-3 bg-primary hover:bg-accent text-white font-bold rounded-lg transition flex items-center justify-center gap-2">
                         Proceed to Checkout
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

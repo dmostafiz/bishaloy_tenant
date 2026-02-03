@@ -1,6 +1,6 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div class="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 text-white py-12">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
+        <div class="bg-theme-elevated text-white py-12">
             <div class="container mx-auto px-4">
                 <h1 class="text-3xl font-bold mb-2">Track Your Order</h1>
                 <p class="text-gray-400">Enter your order details to see delivery status</p>
@@ -9,32 +9,32 @@
 
         <div class="container mx-auto px-4 py-12 max-w-2xl">
             <!-- Search Form -->
-            <div v-if="!order" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 p-8">
+            <div v-if="!order" class="bg-theme-card rounded-2xl shadow-theme-lg p-8">
                 <form @submit.prevent="trackOrder" class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Order ID</label>
+                        <label class="block text-sm font-medium text-theme-muted mb-1">Order ID</label>
                         <input v-model="orderId" type="text" placeholder="e.g. ORD-12345" required
-                            class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500">
+                            class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-theme focus:ring-2 focus:ring-primary">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email
+                        <label class="block text-sm font-medium text-theme-muted mb-1">Email
                             Address</label>
                         <input v-model="email" type="email" placeholder="you@example.com" required
-                            class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500">
+                            class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-theme focus:ring-2 focus:ring-primary">
                     </div>
                     <button type="submit"
-                        class="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition">Track
+                        class="w-full py-3 bg-primary hover:bg-accent text-white font-semibold rounded-xl transition">Track
                         Order</button>
                 </form>
             </div>
 
             <!-- Order Status -->
             <div v-else class="space-y-6">
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 p-6">
+                <div class="bg-theme-card rounded-2xl shadow-theme-lg p-6">
                     <div class="flex justify-between items-start mb-6">
                         <div>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">Order ID</p>
-                            <p class="font-bold text-lg text-gray-900 dark:text-white">{{ order.id }}</p>
+                            <p class="text-sm text-theme-muted">Order ID</p>
+                            <p class="font-bold text-lg text-theme">{{ order.id }}</p>
                         </div>
                         <span
                             class="px-4 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full font-medium">{{
@@ -52,15 +52,15 @@
                                     class="w-0.5 h-12"></div>
                             </div>
                             <div>
-                                <p :class="step.done ? 'text-gray-900 dark:text-white' : 'text-gray-400'"
+                                <p :class="step.done ? 'text-theme' : 'text-gray-400'"
                                     class="font-medium">{{ step.title }}</p>
-                                <p v-if="step.date" class="text-sm text-gray-500 dark:text-gray-400">{{ step.date }}</p>
+                                <p v-if="step.date" class="text-sm text-theme-muted">{{ step.date }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <button @click="order = null" class="text-orange-500 hover:underline font-medium">Track another
+                <button @click="order = null" class="text-primary hover:underline font-medium">Track another
                     order</button>
             </div>
         </div>

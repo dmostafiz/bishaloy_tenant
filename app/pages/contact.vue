@@ -1,9 +1,9 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div class="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 text-white py-12">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
+        <div class="bg-theme-elevated text-theme py-12">
             <div class="container mx-auto px-4 text-center">
                 <h1 class="text-3xl md:text-4xl font-bold mb-2">Contact Us</h1>
-                <p class="text-gray-400">We'd love to hear from you</p>
+                <p class="text-theme-muted">We'd love to hear from you</p>
             </div>
         </div>
 
@@ -12,15 +12,15 @@
                 <!-- Contact Info -->
                 <div class="space-y-6">
                     <div v-for="info in contactInfo" :key="info.title"
-                        class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg dark:shadow-gray-900/50 flex items-start gap-4">
+                        class="bg-theme-card rounded-2xl p-6 shadow-theme-lg flex items-start gap-4">
                         <div
-                            class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center text-2xl shrink-0">
+                            class="w-12 h-12 bg-primary-muted rounded-xl flex items-center justify-center text-2xl shrink-0">
                             {{ info.icon }}
                         </div>
                         <div>
-                            <h3 class="font-semibold text-gray-900 dark:text-white">{{ info.title }}</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ info.value }}</p>
-                            <p v-if="info.extra" class="text-gray-500 dark:text-gray-500 text-xs mt-1">{{ info.extra }}
+                            <h3 class="font-semibold text-theme">{{ info.title }}</h3>
+                            <p class="text-theme-muted text-sm mt-1">{{ info.value }}</p>
+                            <p v-if="info.extra" class="text-theme-light text-xs mt-1">{{ info.extra }}
                             </p>
                         </div>
                     </div>
@@ -28,37 +28,28 @@
 
                 <!-- Contact Form -->
                 <div class="lg:col-span-2">
-                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 p-6 md:p-8">
-                        <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Send us a message</h2>
+                    <div class="bg-theme-card rounded-2xl shadow-theme-lg p-6 md:p-8">
+                        <h2 class="text-xl font-bold text-theme mb-6">Send us a message</h2>
                         <form @submit.prevent="handleSubmit" class="space-y-4">
                             <div class="grid sm:grid-cols-2 gap-4">
                                 <div>
-                                    <label
-                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
-                                    <input v-model="form.name" type="text" required
-                                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500">
+                                    <label class="block text-sm font-medium text-theme-muted mb-1">Name</label>
+                                    <input v-model="form.name" type="text" required class="input-theme">
                                 </div>
                                 <div>
-                                    <label
-                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                                    <input v-model="form.email" type="email" required
-                                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500">
+                                    <label class="block text-sm font-medium text-theme-muted mb-1">Email</label>
+                                    <input v-model="form.email" type="email" required class="input-theme">
                                 </div>
                             </div>
                             <div>
-                                <label
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
-                                <input v-model="form.subject" type="text" required
-                                    class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500">
+                                <label class="block text-sm font-medium text-theme-muted mb-1">Subject</label>
+                                <input v-model="form.subject" type="text" required class="input-theme">
                             </div>
                             <div>
-                                <label
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
-                                <textarea v-model="form.message" rows="5" required
-                                    class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500"></textarea>
+                                <label class="block text-sm font-medium text-theme-muted mb-1">Message</label>
+                                <textarea v-model="form.message" rows="5" required class="input-theme"></textarea>
                             </div>
-                            <button type="submit" :disabled="loading"
-                                class="px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition disabled:opacity-50">
+                            <button type="submit" :disabled="loading" class="btn-primary disabled:opacity-50">
                                 {{ loading ? 'Sending...' : 'Send Message' }}
                             </button>
                         </form>

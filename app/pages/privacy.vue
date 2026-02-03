@@ -1,6 +1,6 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div class="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 text-white py-12">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
+        <div class="bg-theme-elevated text-white py-12">
             <div class="container mx-auto px-4">
                 <h1 class="text-3xl font-bold">Privacy Policy</h1>
                 <p class="text-gray-400 mt-2">Last updated: January 2026</p>
@@ -9,7 +9,7 @@
 
         <div class="container mx-auto px-4 py-12 max-w-4xl">
             <div
-                class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 p-8 prose dark:prose-invert max-w-none">
+                class="bg-theme-card rounded-2xl shadow-theme-lg p-8 prose dark:prose-invert max-w-none">
                 <h2>1. Information We Collect</h2>
                 <p>We collect information you provide directly, including name, email, shipping address, and payment
                     information when you make a purchase.</p>

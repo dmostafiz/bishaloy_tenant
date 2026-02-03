@@ -1,6 +1,6 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div class="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 text-white py-12">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
+        <div class="bg-theme-elevated text-white py-12">
             <div class="container mx-auto px-4">
                 <h1 class="text-3xl font-bold">Terms of Service</h1>
                 <p class="text-gray-400 mt-2">Last updated: January 2026</p>
@@ -9,7 +9,7 @@
 
         <div class="container mx-auto px-4 py-12 max-w-4xl">
             <div
-                class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 p-8 prose dark:prose-invert max-w-none">
+                class="bg-theme-card rounded-2xl shadow-theme-lg p-8 prose dark:prose-invert max-w-none">
                 <h2>1. Acceptance of Terms</h2>
                 <p>By accessing or using our website, you agree to be bound by these Terms of Service. If you disagree
                     with any part of the terms, you may not access the service.</p>

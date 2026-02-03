@@ -1,8 +1,8 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
         <!-- Hero Banner -->
         <div
-            class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white py-8">
+            class="bg-theme-elevated text-white py-8">
             <div class="container mx-auto px-4">
                 <h1 class="text-3xl md:text-4xl font-bold animate-fade-in">Shop All Products</h1>
                 <p class="text-gray-300 mt-2">Discover our amazing collection</p>
@@ -14,19 +14,19 @@
                 <!-- Sidebar Filters -->
                 <aside class="lg:w-64 shrink-0">
                     <div
-                        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 p-6 sticky top-24 transition-colors duration-300">
-                        <h3 class="font-bold text-lg mb-4 text-gray-900 dark:text-white">Filters</h3>
+                        class="bg-theme-card rounded-2xl shadow-theme-lg p-6 sticky top-24 transition-colors duration-300">
+                        <h3 class="font-bold text-lg mb-4 text-theme">Filters</h3>
 
                         <!-- Categories -->
                         <div class="mb-6">
-                            <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-3">Categories</h4>
+                            <h4 class="font-semibold text-theme-muted mb-3">Categories</h4>
                             <div class="space-y-2">
                                 <label v-for="cat in categories" :key="cat"
                                     class="flex items-center gap-2 cursor-pointer group">
                                     <input type="checkbox" v-model="filters.categories" :value="cat"
-                                        class="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-orange-500 focus:ring-orange-500">
+                                        class="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary">
                                     <span
-                                        class="text-gray-600 dark:text-gray-300 group-hover:text-orange-500 transition">{{
+                                        class="text-gray-600 dark:text-gray-300 group-hover:text-primary transition">{{
                                         cat }}</span>
                                 </label>
                             </div>
@@ -34,33 +34,33 @@
 
                         <!-- Price Range -->
                         <div class="mb-6">
-                            <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-3">Price Range</h4>
+                            <h4 class="font-semibold text-theme-muted mb-3">Price Range</h4>
                             <div class="flex gap-2">
                                 <input v-model.number="filters.minPrice" type="number" placeholder="Min"
-                                    class="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500">
+                                    class="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-700 text-theme focus:ring-2 focus:ring-primary">
                                 <input v-model.number="filters.maxPrice" type="number" placeholder="Max"
-                                    class="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500">
+                                    class="w-full px-3 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-700 text-theme focus:ring-2 focus:ring-primary">
                             </div>
                         </div>
 
                         <!-- Rating -->
                         <div class="mb-6">
-                            <h4 class="font-semibold text-gray-700 dark:text-gray-200 mb-3">Rating</h4>
+                            <h4 class="font-semibold text-theme-muted mb-3">Rating</h4>
                             <div class="space-y-2">
                                 <label v-for="r in [4, 3, 2, 1]" :key="r"
                                     class="flex items-center gap-2 cursor-pointer group">
                                     <input type="radio" v-model="filters.rating" :value="r"
-                                        class="w-4 h-4 border-gray-300 dark:border-gray-600 text-orange-500 focus:ring-orange-500">
+                                        class="w-4 h-4 border-gray-300 dark:border-gray-600 text-primary focus:ring-primary">
                                     <span class="flex text-yellow-400">
                                         <span v-for="i in 5" :key="i">{{ i <= r ? '★' : '☆' }}</span>
                                         </span>
-                                        <span class="text-gray-500 dark:text-gray-400 text-sm">& up</span>
+                                        <span class="text-theme-muted text-sm">& up</span>
                                 </label>
                             </div>
                         </div>
 
                         <button @click="clearFilters"
-                            class="w-full py-2 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 rounded-lg hover:border-orange-500 hover:text-orange-500 transition">
+                            class="w-full py-2 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 rounded-lg hover:border-primary hover:text-primary transition">
                             Clear Filters
                         </button>
                     </div>
@@ -70,10 +70,10 @@
                 <main class="flex-1">
                     <!-- Toolbar -->
                     <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-                        <p class="text-gray-600 dark:text-gray-400">Showing {{ filteredProducts.length }} products</p>
+                        <p class="text-theme-muted">Showing {{ filteredProducts.length }} products</p>
                         <div class="flex items-center gap-3">
                             <select v-model="sortBy"
-                                class="px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 focus:ring-2 focus:ring-orange-500">
+                                class="px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg bg-theme-card text-theme-muted focus:ring-2 focus:ring-primary">
                                 <option value="featured">Featured</option>
                                 <option value="price-low">Price: Low to High</option>
                                 <option value="price-high">Price: High to Low</option>
@@ -81,7 +81,7 @@
                             </select>
                             <div class="flex border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
                                 <button @click="viewMode = 'grid'"
-                                    :class="viewMode === 'grid' ? 'bg-orange-500 text-white' : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300'"
+                                    :class="viewMode === 'grid' ? 'bg-primary text-white' : 'bg-theme-card text-gray-600 dark:text-gray-300'"
                                     class="p-2 transition">
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path
@@ -89,7 +89,7 @@
                                     </svg>
                                 </button>
                                 <button @click="viewMode = 'list'"
-                                    :class="viewMode === 'list' ? 'bg-orange-500 text-white' : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300'"
+                                    :class="viewMode === 'list' ? 'bg-primary text-white' : 'bg-theme-card text-gray-600 dark:text-gray-300'"
                                     class="p-2 transition">
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd"
@@ -104,7 +104,7 @@
                     <!-- Grid View -->
                     <div v-if="viewMode === 'grid'" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
                         <div v-for="(product, i) in filteredProducts" :key="product.id"
-                            class="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 overflow-hidden hover:shadow-xl dark:hover:shadow-gray-900/70 transition-all duration-300 hover:-translate-y-1"
+                            class="group bg-theme-card rounded-2xl shadow-theme-lg overflow-hidden hover:shadow-xl dark:hover:shadow-gray-900/70 transition-all duration-300 hover:-translate-y-1"
                             :style="{ animationDelay: `${i * 0.05}s` }">
                             <div class="relative aspect-square overflow-hidden">
                                 <img :src="product.image" :alt="product.name"
@@ -116,15 +116,15 @@
                                 <div
                                     class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                     <button
-                                        class="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600">
+                                        class="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 px-4 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-accent">
                                         Quick View
                                     </button>
                                 </div>
                             </div>
                             <div class="p-4">
-                                <p class="text-xs text-orange-500 font-medium mb-1">{{ product.category }}</p>
+                                <p class="text-xs text-primary font-medium mb-1">{{ product.category }}</p>
                                 <h3
-                                    class="font-semibold text-gray-800 dark:text-white mb-2 line-clamp-2 group-hover:text-orange-500 transition-colors">
+                                    class="font-semibold text-gray-800 dark:text-white mb-2 line-clamp-2 group-hover:text-primary transition-colors">
                                     {{ product.name }}</h3>
                                 <div class="flex items-center gap-1 mb-2">
                                     <span class="text-yellow-400">{{ '★'.repeat(product.rating) }}{{ '☆'.repeat(5 -
@@ -133,14 +133,14 @@
                                 </div>
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center gap-2">
-                                        <span class="text-xl font-bold text-gray-900 dark:text-white">${{ product.price
+                                        <span class="text-xl font-bold text-theme">${{ product.price
                                             }}</span>
                                         <span v-if="product.originalPrice"
                                             class="text-sm text-gray-400 line-through">${{ product.originalPrice
                                             }}</span>
                                     </div>
                                     <button
-                                        class="p-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors">
+                                        class="p-2 bg-primary hover:bg-accent text-white rounded-lg transition-colors">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M12 4v16m8-8H4" />
@@ -154,25 +154,25 @@
                     <!-- List View -->
                     <div v-else class="space-y-4">
                         <div v-for="product in filteredProducts" :key="product.id"
-                            class="flex gap-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 p-4 hover:shadow-xl transition-all duration-300">
+                            class="flex gap-4 bg-theme-card rounded-2xl shadow-theme-lg p-4 hover:shadow-xl transition-all duration-300">
                             <div class="w-32 h-32 shrink-0 rounded-xl overflow-hidden">
                                 <img :src="product.image" :alt="product.name" class="w-full h-full object-cover">
                             </div>
                             <div class="flex-1">
-                                <p class="text-xs text-orange-500 font-medium">{{ product.category }}</p>
+                                <p class="text-xs text-primary font-medium">{{ product.category }}</p>
                                 <h3 class="font-semibold text-gray-800 dark:text-white mb-1">{{ product.name }}</h3>
                                 <div class="flex items-center gap-1 mb-2">
                                     <span class="text-yellow-400 text-sm">{{ '★'.repeat(product.rating) }}</span>
                                     <span class="text-gray-400 text-xs">({{ product.reviews }} reviews)</span>
                                 </div>
-                                <p class="text-gray-500 dark:text-gray-400 text-sm line-clamp-2">{{ product.description
+                                <p class="text-theme-muted text-sm line-clamp-2">{{ product.description
                                     }}</p>
                             </div>
                             <div class="text-right">
-                                <span class="text-xl font-bold text-gray-900 dark:text-white">${{ product.price
+                                <span class="text-xl font-bold text-theme">${{ product.price
                                     }}</span>
                                 <button
-                                    class="block mt-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-semibold transition">
+                                    class="block mt-2 px-4 py-2 bg-primary hover:bg-accent text-white rounded-lg font-semibold transition">
                                     Add to Cart
                                 </button>
                             </div>
@@ -183,7 +183,7 @@
                     <div class="flex justify-center mt-10">
                         <div class="flex gap-2">
                             <button v-for="i in 5" :key="i"
-                                :class="i === 1 ? 'bg-orange-500 text-white' : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:border-orange-500'"
+                                :class="i === 1 ? 'bg-primary text-white' : 'bg-theme-card text-gray-600 dark:text-gray-300 hover:border-primary'"
                                 class="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-600 font-medium transition">
                                 {{ i }}
                             </button>

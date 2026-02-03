@@ -27,7 +27,7 @@
                     <!-- Badge/Tag -->
                     <div v-if="section?.badge"
                         class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                        <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
+                        <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
                         <span class="text-sm font-medium text-white/90">{{ section.badge }}</span>
                     </div>
 
@@ -167,7 +167,7 @@ const overlayClasses = computed(() => {
     const type = props.section?.overlayType || 'gradient'
     switch (type) {
         case 'dark':
-            return 'bg-gray-900/70'
+            return 'bg-theme-elevated/70'
         case 'light':
             return 'bg-white/30'
         case 'gradient':

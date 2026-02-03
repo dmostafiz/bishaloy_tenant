@@ -1,6 +1,6 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div class="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 text-white py-10">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
+        <div class="bg-theme-elevated text-white py-10">
             <div class="container mx-auto px-4">
                 <h1 class="text-3xl font-bold">Shopping Cart</h1>
                 <p class="text-gray-400 mt-1">{{ items.length }} items in your cart</p>
@@ -12,21 +12,21 @@
                 <!-- Cart Items -->
                 <div class="flex-1 space-y-4">
                     <div v-for="item in items" :key="item.id"
-                        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 p-4 flex gap-4 hover:shadow-xl transition-shadow">
+                        class="bg-theme-card rounded-2xl shadow-theme-lg p-4 flex gap-4 hover:shadow-xl transition-shadow">
                         <img :src="item.image" :alt="item.name" class="w-24 h-24 rounded-xl object-cover">
                         <div class="flex-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white">{{ item.name }}</h4>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">{{ item.variant }}</p>
+                            <h4 class="font-semibold text-theme">{{ item.name }}</h4>
+                            <p class="text-sm text-theme-muted">{{ item.variant }}</p>
                             <div class="flex items-center gap-3 mt-3">
                                 <button @click="updateQty(item.id, -1)"
-                                    class="w-8 h-8 rounded-lg border border-gray-200 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:border-orange-500 hover:text-orange-500 transition">-</button>
-                                <span class="font-medium text-gray-900 dark:text-white">{{ item.qty }}</span>
+                                    class="w-8 h-8 rounded-lg border border-gray-200 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:border-primary hover:text-primary transition">-</button>
+                                <span class="font-medium text-theme">{{ item.qty }}</span>
                                 <button @click="updateQty(item.id, 1)"
-                                    class="w-8 h-8 rounded-lg border border-gray-200 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:border-orange-500 hover:text-orange-500 transition">+</button>
+                                    class="w-8 h-8 rounded-lg border border-gray-200 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:border-primary hover:text-primary transition">+</button>
                             </div>
                         </div>
                         <div class="text-right">
-                            <p class="text-xl font-bold text-gray-900 dark:text-white">${{ (item.price *
+                            <p class="text-xl font-bold text-theme">${{ (item.price *
                                 item.qty).toFixed(2) }}</p>
                             <button @click="removeItem(item.id)"
                                 class="mt-2 text-sm text-red-500 hover:underline">Remove</button>
@@ -37,26 +37,26 @@
                 <!-- Order Summary -->
                 <div class="lg:w-96">
                     <div
-                        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-gray-900/50 p-6 sticky top-24">
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Order Summary</h3>
+                        class="bg-theme-card rounded-2xl shadow-theme-lg p-6 sticky top-24">
+                        <h3 class="text-lg font-bold text-theme mb-4">Order Summary</h3>
                         <div class="space-y-3 text-sm">
-                            <div class="flex justify-between text-gray-600 dark:text-gray-400">
+                            <div class="flex justify-between text-theme-muted">
                                 <span>Subtotal</span><span>${{ subtotal.toFixed(2) }}</span></div>
-                            <div class="flex justify-between text-gray-600 dark:text-gray-400">
+                            <div class="flex justify-between text-theme-muted">
                                 <span>Shipping</span><span class="text-green-500 font-medium">Free</span></div>
-                            <div class="flex justify-between text-gray-600 dark:text-gray-400"><span>Tax</span><span>${{
+                            <div class="flex justify-between text-theme-muted"><span>Tax</span><span>${{
                                     tax.toFixed(2) }}</span></div>
                             <div
-                                class="border-t border-gray-100 dark:border-gray-700 pt-3 flex justify-between text-lg font-bold text-gray-900 dark:text-white">
+                                class="border-t border-gray-100 dark:border-gray-700 pt-3 flex justify-between text-lg font-bold text-theme">
                                 <span>Total</span><span>${{ total.toFixed(2) }}</span>
                             </div>
                         </div>
                         <NuxtLink to="/checkout"
-                            class="block w-full mt-6 py-3 bg-orange-500 hover:bg-orange-600 text-white text-center font-semibold rounded-xl transition">
+                            class="block w-full mt-6 py-3 bg-primary hover:bg-accent text-white text-center font-semibold rounded-xl transition">
                             Proceed to Checkout
                         </NuxtLink>
                         <NuxtLink to="/shop"
-                            class="block w-full mt-3 py-3 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 text-center font-medium rounded-xl hover:border-orange-500 hover:text-orange-500 transition">
+                            class="block w-full mt-3 py-3 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 text-center font-medium rounded-xl hover:border-primary hover:text-primary transition">
                             Continue Shopping
                         </NuxtLink>
                     </div>
@@ -72,10 +72,10 @@
                             d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                 </div>
-                <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Your cart is empty</h2>
-                <p class="text-gray-500 dark:text-gray-400 mb-6">Start adding items to your cart</p>
+                <h2 class="text-xl font-semibold text-theme mb-2">Your cart is empty</h2>
+                <p class="text-theme-muted mb-6">Start adding items to your cart</p>
                 <NuxtLink to="/shop"
-                    class="inline-block px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-semibold transition">
+                    class="inline-block px-6 py-3 bg-primary hover:bg-accent text-white rounded-xl font-semibold transition">
                     Start Shopping</NuxtLink>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="min-h-screen bg-theme transition-colors duration-300">
         <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-12">
             <div class="container mx-auto px-4 text-center">
                 <span class="text-4xl mb-4 block">↩️</span>
@@ -12,23 +12,23 @@
             <!-- Return Steps -->
             <div class="grid sm:grid-cols-3 gap-6 mb-12">
                 <div v-for="(step, i) in steps" :key="i"
-                    class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg dark:shadow-gray-900/50 text-center hover:-translate-y-1 transition-all duration-300">
+                    class="bg-theme-card rounded-2xl p-6 shadow-theme-lg text-center hover:-translate-y-1 transition-all duration-300">
                     <div
                         class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-xl font-bold text-purple-600 dark:text-purple-400 mx-auto mb-4">
                         {{ i + 1 }}
                     </div>
-                    <h3 class="font-bold text-gray-900 dark:text-white mb-2">{{ step.title }}</h3>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm">{{ step.desc }}</p>
+                    <h3 class="font-bold text-theme mb-2">{{ step.title }}</h3>
+                    <p class="text-theme-muted text-sm">{{ step.desc }}</p>
                 </div>
             </div>
 
             <!-- Policy Info -->
             <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg dark:shadow-gray-900/50">
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                <div class="bg-theme-card rounded-2xl p-6 shadow-theme-lg">
+                    <h3 class="text-lg font-bold text-theme mb-4 flex items-center gap-2">
                         <span class="text-xl">✅</span> Eligible Items
                     </h3>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                    <ul class="space-y-2 text-theme-muted">
                         <li v-for="item in eligible" :key="item" class="flex items-start gap-2">
                             <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -39,11 +39,11 @@
                         </li>
                     </ul>
                 </div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg dark:shadow-gray-900/50">
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                <div class="bg-theme-card rounded-2xl p-6 shadow-theme-lg">
+                    <h3 class="text-lg font-bold text-theme mb-4 flex items-center gap-2">
                         <span class="text-xl">❌</span> Non-Returnable Items
                     </h3>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                    <ul class="space-y-2 text-theme-muted">
                         <li v-for="item in nonReturnable" :key="item" class="flex items-start gap-2">
                             <svg class="w-5 h-5 text-red-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
