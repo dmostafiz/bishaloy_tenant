@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-theme-elevated sticky text-theme top-0 z-50 shadow-lg">
+    <header class="bg-white dark:bg-gray-900 sticky text-theme top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4">
             <!-- Top Row -->
             <div class="flex items-center justify-between py-3 gap-2">
@@ -35,7 +35,7 @@
                 <div class="hidden sm:flex flex-1 max-w-2xl mx-2 lg:mx-4">
                     <form @submit.prevent="handleSearch" class="relative w-full">
                         <input v-model="searchQuery" type="text" placeholder="Search for products..."
-                            class="w-full rounded-xl px-4 py-2 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 text-sm pr-12">
+                            class="w-full rounded-xl px-4 py-2 bg-gray-100 dark:bg-gray-800 text-theme focus:outline-none focus:ring-2 focus:ring-orange-400 text-sm pr-12">
                         <button type="submit"
                             class="absolute right-0 top-0 bg-orange-400 hover:bg-primary px-4 py-2 rounded-r-xl transition">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

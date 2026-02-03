@@ -1,6 +1,6 @@
 <template>
     <!-- Category Nav -->
-    <div class="relative bg-theme-elevated py-2">
+    <div class="relative bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 text-theme py-2">
         <div class="relative container mx-auto px-4 flex items-center gap-4 lg:gap-6 text-xs sm:text-sm">
             <div class="relative">
                 <button onclick="toggleCategories()"

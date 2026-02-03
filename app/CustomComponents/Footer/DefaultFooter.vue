@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-theme-elevated dark:bg-gray-950 text-theme-muted transition-colors duration-300">
+  <footer class="bg-gray-100 dark:bg-gray-950 text-theme-muted transition-colors duration-300">
     <!-- Newsletter Section -->
     <div class="bg-gradient-to-r from-orange-500 to-orange-600">
       <div class="container mx-auto px-4 py-8">
@@ -34,7 +34,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
         <!-- Brand & Description -->
         <div class="lg:col-span-1">
-          <h2 class="text-2xl font-bold text-white mb-4">{{ $tenant.name }}</h2>
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{{ $tenant.name }}</h2>
           <p class="text-gray-400 text-sm mb-6 leading-relaxed">
             Your trusted destination for quality products at amazing prices. We're committed to providing exceptional
             shopping experiences.
@@ -70,7 +70,7 @@
 
         <!-- Customer Service -->
         <div>
-          <h4 class="text-lg font-semibold text-white mb-5 relative">
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-5 relative">
             Customer Service
             <span class="absolute -bottom-2 left-0 w-10 h-0.5 bg-primary"></span>
           </h4>
@@ -145,7 +145,7 @@
 
         <!-- Quick Links -->
         <div>
-          <h4 class="text-lg font-semibold text-white mb-5 relative">
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-5 relative">
             Quick Links
             <span class="absolute -bottom-2 left-0 w-10 h-0.5 bg-primary"></span>
           </h4>
@@ -220,7 +220,7 @@
 
         <!-- About & Contact Info -->
         <div>
-          <h4 class="text-lg font-semibold text-white mb-5 relative">
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-5 relative">
             About Us
             <span class="absolute -bottom-2 left-0 w-10 h-0.5 bg-primary"></span>
           </h4>
@@ -399,8 +399,8 @@
             © {{ new Date().getFullYear() }} {{ $tenant.name }}. All rights reserved.
           </p>
           <div class="flex items-center gap-6">
-            <a href="/privacy"
-              class="text-gray-500 hover:text-primary text-sm transition-colors duration-300">Privacy Policy</a>
+            <a href="/privacy" class="text-gray-500 hover:text-primary text-sm transition-colors duration-300">Privacy
+              Policy</a>
             <a href="/terms" class="text-gray-500 hover:text-primary text-sm transition-colors duration-300">Terms of
               Service</a>
             <a href="/cookies" class="text-gray-500 hover:text-primary text-sm transition-colors duration-300">Cookie

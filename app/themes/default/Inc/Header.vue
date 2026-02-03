@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-theme-elevated sticky text-theme top-0 z-50 shadow-theme-lg">
+    <header class="bg-white dark:bg-gray-900 sticky text-theme top-0 z-50 shadow-theme-lg">
         <div class="container mx-auto px-4">
             <!-- Top Row -->
             <div class="flex items-center justify-between py-3 gap-2">

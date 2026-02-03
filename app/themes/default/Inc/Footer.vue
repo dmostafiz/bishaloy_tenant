@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-theme-elevated text-theme py-12 mt-16">
+  <footer class="bg-gray-100 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 text-theme py-12 mt-16">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- Company Info -->
