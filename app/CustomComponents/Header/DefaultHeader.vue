@@ -221,24 +221,24 @@
         enter-to-class="translate-x-0" leave-active-class="transition ease-in duration-200 transform"
         leave-from-class="translate-x-0" leave-to-class="-translate-x-full">
         <div v-if="showMobileMenu"
-            class="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-theme-elevated z-50 shadow-2xl lg:hidden overflow-y-auto">
+            class="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-gray-900 z-50 shadow-2xl lg:hidden overflow-y-auto border-r border-gray-800">
             <!-- Menu Header -->
-            <div class="flex items-center justify-between p-4 border-b border-gray-700">
+            <div class="flex items-center justify-between p-4 border-b border-gray-800">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-orange-500/20">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                     </div>
                     <div class="text-white">
-                        <div class="text-sm">Hello, {{ isLoggedIn ? userName : 'Guest' }}</div>
-                        <NuxtLink v-if="!isLoggedIn" to="/auth/login" class="text-primary text-sm font-semibold"
+                        <div class="text-sm font-medium">Hello, {{ isLoggedIn ? userName : 'Guest' }}</div>
+                        <NuxtLink v-if="!isLoggedIn" to="/auth/login" class="text-primary text-sm font-bold hover:text-orange-400 transition"
                             @click="showMobileMenu = false">Sign In</NuxtLink>
                     </div>
                 </div>
-                <button @click="showMobileMenu = false" class="text-white hover:text-primary transition">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button @click="showMobileMenu = false" class="text-gray-400 hover:text-white transition p-2 bg-gray-800 rounded-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -246,8 +246,8 @@
             </div>
 
             <!-- Menu Links -->
-            <nav class="py-4">
-                <NuxtLink to="/" class="flex items-center gap-3 px-4 py-3 text-white hover:bg-gray-800 transition"
+            <nav class="py-4 space-y-1">
+                <NuxtLink to="/" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition"
                     @click="showMobileMenu = false">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -255,7 +255,7 @@
                     </svg>
                     Home
                 </NuxtLink>
-                <NuxtLink to="/shop" class="flex items-center gap-3 px-4 py-3 text-white hover:bg-gray-800 transition"
+                <NuxtLink to="/shop" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition"
                     @click="showMobileMenu = false">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -264,7 +264,7 @@
                     Shop
                 </NuxtLink>
                 <NuxtLink to="/categories"
-                    class="flex items-center gap-3 px-4 py-3 text-white hover:bg-gray-800 transition"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition"
                     @click="showMobileMenu = false">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -272,7 +272,7 @@
                     </svg>
                     Categories
                 </NuxtLink>
-                <NuxtLink to="/deals" class="flex items-center gap-3 px-4 py-3 text-white hover:bg-gray-800 transition"
+                <NuxtLink to="/deals" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition"
                     @click="showMobileMenu = false">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -281,10 +281,10 @@
                     Deals & Offers
                 </NuxtLink>
 
-                <div class="border-t border-gray-700 my-4"></div>
+                <div class="border-t border-gray-800 my-4"></div>
 
                 <NuxtLink to="/account"
-                    class="flex items-center gap-3 px-4 py-3 text-white hover:bg-gray-800 transition"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition"
                     @click="showMobileMenu = false">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -292,7 +292,7 @@
                     </svg>
                     My Account
                 </NuxtLink>
-                <NuxtLink to="/orders" class="flex items-center gap-3 px-4 py-3 text-white hover:bg-gray-800 transition"
+                <NuxtLink to="/orders" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition"
                     @click="showMobileMenu = false">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -301,7 +301,7 @@
                     My Orders
                 </NuxtLink>
                 <NuxtLink to="/wishlist"
-                    class="flex items-center gap-3 px-4 py-3 text-white hover:bg-gray-800 transition"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition"
                     @click="showMobileMenu = false">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -309,7 +309,7 @@
                     </svg>
                     Wishlist
                 </NuxtLink>
-                <NuxtLink to="/help" class="flex items-center gap-3 px-4 py-3 text-white hover:bg-gray-800 transition"
+                <NuxtLink to="/help" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition"
                     @click="showMobileMenu = false">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -325,24 +325,25 @@
     <Transition enter-active-class="transition-opacity ease-out duration-300" enter-from-class="opacity-0"
         enter-to-class="opacity-100" leave-active-class="transition-opacity ease-in duration-200"
         leave-from-class="opacity-100" leave-to-class="opacity-0">
-        <div v-if="showCart" class="fixed inset-0 bg-black/50 z-50" @click="showCart = false"></div>
+        <div v-if="showCart" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50" @click="showCart = false"></div>
     </Transition>
 
     <Transition enter-active-class="transition ease-out duration-300 transform" enter-from-class="translate-x-full"
         enter-to-class="translate-x-0" leave-active-class="transition ease-in duration-200 transform"
         leave-from-class="translate-x-0" leave-to-class="translate-x-full">
         <div v-if="showCart"
-            class="fixed top-0 right-0 h-full w-96 max-w-[90vw] bg-white z-50 shadow-2xl flex flex-col">
+            class="fixed top-0 right-0 h-full w-96 max-w-[90vw] bg-gray-900 border-l border-gray-800 z-50 shadow-2xl flex flex-col">
             <!-- Cart Header -->
-            <div class="flex items-center justify-between p-4 border-b bg-theme-elevated text-white">
-                <h2 class="text-lg font-bold flex items-center gap-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center justify-between p-5 border-b border-gray-800 bg-gray-900 text-white">
+                <h2 class="text-xl font-bold flex items-center gap-2">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
-                    Shopping Cart ({{ cartCount }})
+                    Shopping Cart
+                    <span class="text-sm font-normal text-gray-400 ml-1">({{ cartCount }} items)</span>
                 </h2>
-                <button @click="showCart = false" class="hover:text-primary transition">
+                <button @click="showCart = false" class="text-gray-400 hover:text-white transition p-2 hover:bg-gray-800 rounded-full">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
@@ -351,40 +352,44 @@
             </div>
 
             <!-- Cart Items -->
-            <div class="flex-1 overflow-y-auto p-4">
+            <div class="flex-1 overflow-y-auto p-5">
                 <div v-if="cartItems.length === 0"
                     class="flex flex-col items-center justify-center h-full text-gray-400">
-                    <svg class="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    <p class="text-lg font-medium">Your cart is empty</p>
-                    <p class="text-sm">Add some products to get started!</p>
+                    <div class="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <p class="text-lg font-medium text-white">Your cart is empty</p>
+                    <p class="text-sm text-gray-500 mt-1">Looks like you haven't added anything yet.</p>
                     <button @click="showCart = false; navigateTo('/shop')"
-                        class="mt-4 px-6 py-2 bg-primary text-white rounded-lg hover:bg-accent transition">
-                        Continue Shopping
+                        class="mt-6 px-8 py-3 bg-primary text-white rounded-xl hover:bg-accent transition font-semibold">
+                        Start Shopping
                     </button>
                 </div>
 
                 <div v-else class="space-y-4">
-                    <div v-for="item in cartItems" :key="item.id" class="flex gap-4 p-3 bg-gray-50 rounded-lg">
-                        <img :src="item.image" :alt="item.name" class="w-20 h-20 object-cover rounded-lg">
+                    <div v-for="item in cartItems" :key="item.id" class="flex gap-4 p-3 bg-gray-800 rounded-xl border border-gray-700 hover:border-gray-600 transition">
+                        <img :src="item.image" :alt="item.name" class="w-20 h-20 object-cover rounded-lg bg-gray-700">
                         <div class="flex-1">
-                            <h4 class="font-medium text-gray-900 text-sm">{{ item.name }}</h4>
+                            <h4 class="font-medium text-white text-sm line-clamp-2 mb-1">{{ item.name }}</h4>
                             <p class="text-primary font-bold">${{ item.price.toFixed(2) }}</p>
-                            <div class="flex items-center gap-2 mt-2">
-                                <button @click="updateCartQuantity(item.id, item.quantity - 1)"
-                                    class="w-6 h-6 bg-gray-200 rounded flex items-center justify-center hover:bg-gray-300 transition">
-                                    <span class="text-gray-600">-</span>
-                                </button>
-                                <span class="text-sm font-medium">{{ item.quantity }}</span>
-                                <button @click="updateCartQuantity(item.id, item.quantity + 1)"
-                                    class="w-6 h-6 bg-gray-200 rounded flex items-center justify-center hover:bg-gray-300 transition">
-                                    <span class="text-gray-600">+</span>
-                                </button>
+                            <div class="flex items-center gap-3 mt-3">
+                                <div class="flex items-center bg-gray-700 rounded-lg">
+                                    <button @click="updateCartQuantity(item.id, item.quantity - 1)"
+                                        class="w-8 h-8 flex items-center justify-center text-gray-300 hover:text-white hover:bg-gray-600 rounded-l-lg transition">
+                                        -
+                                    </button>
+                                    <span class="text-sm font-medium text-white w-6 text-center">{{ item.quantity }}</span>
+                                    <button @click="updateCartQuantity(item.id, item.quantity + 1)"
+                                        class="w-8 h-8 flex items-center justify-center text-gray-300 hover:text-white hover:bg-gray-600 rounded-r-lg transition">
+                                        +
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <button @click="removeFromCart(item.id)" class="text-gray-400 hover:text-red-500 transition">
+                        <button @click="removeFromCart(item.id)" class="self-start text-gray-500 hover:text-red-400 transition p-1">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -395,15 +400,16 @@
             </div>
 
             <!-- Cart Footer -->
-            <div v-if="cartItems.length > 0" class="p-4 border-t bg-gray-50">
+            <div v-if="cartItems.length > 0" class="p-5 border-t border-gray-800 bg-gray-900">
                 <div class="flex justify-between items-center mb-4">
-                    <span class="text-gray-600">Subtotal</span>
-                    <span class="text-xl font-bold text-gray-900">${{ cartTotal.toFixed(2) }}</span>
+                    <span class="text-gray-400">Subtotal</span>
+                    <span class="text-2xl font-bold text-white">${{ cartTotal.toFixed(2) }}</span>
                 </div>
+                <p class="text-xs text-center text-gray-500 mb-4">Shipping and taxes calculated at checkout.</p>
                 <NuxtLink to="/checkout" @click="showCart = false">
                     <button
-                        class="w-full py-3 bg-primary hover:bg-accent text-white font-bold rounded-lg transition flex items-center justify-center gap-2">
-                        Proceed to Checkout
+                        class="w-full py-3.5 bg-primary hover:bg-accent text-white font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-primary/25">
+                        Checkout Now
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -411,7 +417,7 @@
                     </button>
                 </NuxtLink>
                 <button @click="showCart = false"
-                    class="w-full mt-2 py-2 text-gray-600 hover:text-gray-900 transition text-sm">
+                    class="w-full mt-3 py-2 text-gray-500 hover:text-white transition text-sm font-medium">
                     Continue Shopping
                 </button>
             </div>
