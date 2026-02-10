@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Inter:wght@100..900&display=swap');
+
 @import "tailwindcss";
 @import "@nuxt/ui";
 
@@ -7,100 +9,84 @@
    ============================================ */
 
 :root {
-  /* Brand Colors - These will be dynamically set by JavaScript */
-  --color-primary: 249 115 22;
-  /* orange-500 */
-  --color-primary-hover: 234 88 12;
-  /* orange-600 */
-  --color-primary-muted: 254 215 170;
-  /* orange-200 */
-  --color-accent: 251 146 60;
-  /* orange-400 */
-  --color-accent-hover: 249 115 22;
-  /* orange-500 */
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
 
-  /* Light Theme Backgrounds */
-  --color-bg: 249 250 251;
-  /* gray-50 */
+  /* Brand Colors - These will be dynamically set by JavaScript */
+  --color-primary: 20 20 20;
+  /* Professional Black/Dark Grey */
+  --color-primary-hover: 0 0 0;
+  --color-primary-muted: 243 244 246;
+  --color-accent: 249 115 22;
+  /* Keep highlight for CTA */
+  --color-accent-hover: 234 88 12;
+
+  /* Light Theme Backgrounds - Pure White Flagship */
+  --color-bg: 255 255 255;
   --color-bg-alt: 255 255 255;
-  /* white */
   --color-bg-card: 255 255 255;
   --color-bg-elevated: 255 255 255;
 
   /* Light Theme Text */
-  --color-text: 17 24 39;
-  /* gray-900 */
-  --color-text-muted: 107 114 128;
-  /* gray-500 */
-  --color-text-light: 156 163 175;
-  /* gray-400 */
+  --color-text: 10 10 12;
+  --color-text-muted: 100 110 125;
+  --color-text-light: 150 160 175;
 
-  /* Light Theme Borders */
-  --color-border: 229 231 235;
-  /* gray-200 */
-  --color-border-light: 243 244 246;
-  /* gray-100 */
+  /* Light Theme Borders - Minimalist */
+  --color-border: 235 237 240;
+  --color-border-light: 245 247 250;
 
   /* Button Colors */
-  --color-btn-primary-bg: 249 115 22;
+  --color-btn-primary-bg: 10 10 12;
   --color-btn-primary-text: 255 255 255;
-  --color-btn-secondary-bg: 243 244 246;
-  --color-btn-secondary-text: 55 65 81;
+  --color-btn-secondary-bg: 255 255 255;
+  --color-btn-secondary-text: 10 10 12;
 
   /* Status Colors */
-  --color-success: 34 197 94;
-  --color-success-muted: 187 247 208;
-  --color-warning: 234 179 8;
-  --color-warning-muted: 254 240 138;
+  --color-success: 16 185 129;
+  --color-success-muted: 236 253 245;
+  --color-warning: 245 158 11;
+  --color-warning-muted: 255 251 235;
   --color-error: 239 68 68;
-  --color-error-muted: 254 202 202;
+  --color-error-muted: 254 242 242;
   --color-info: 59 130 246;
-  --color-info-muted: 191 219 254;
+  --color-info-muted: 239 246 255;
 
-  /* Shadows */
+  /* Shadows - Minimal/None */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.03);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.03);
 }
 
 .dark {
-  /* Dark Theme - These will be dynamically set by JavaScript */
-  --color-primary: 251 146 60;
-  --color-primary-hover: 253 186 116;
-  --color-primary-muted: 124 45 18;
-  --color-accent: 249 115 22;
-  --color-accent-hover: 234 88 12;
+  /* Dark Theme - Pure Black Flagship */
+  --color-primary: 255 255 255;
+  --color-primary-hover: 243 244 246;
+  --color-primary-muted: 30 30 35;
+  --color-accent: 251 146 60;
+  --color-accent-hover: 249 115 22;
 
   /* Dark Theme Backgrounds */
-  --color-bg: 3 7 18;
-  /* gray-950 */
-  --color-bg-alt: 17 24 39;
-  /* gray-900 */
-  --color-bg-card: 17 24 39;
-  /* gray-900 */
-  --color-bg-elevated: 31 41 55;
-  /* gray-800 */
+  --color-bg: 0 0 0;
+  --color-bg-alt: 8 8 10;
+  --color-bg-card: 10 10 12;
+  --color-bg-elevated: 15 15 18;
 
   /* Dark Theme Text */
-  --color-text: 249 250 251;
-  /* gray-50 */
-  --color-text-muted: 156 163 175;
-  /* gray-400 */
-  --color-text-light: 107 114 128;
-  /* gray-500 */
+  --color-text: 250 250 252;
+  --color-text-muted: 140 145 155;
+  --color-text-light: 90 95 105;
 
   /* Dark Theme Borders */
-  --color-border: 55 65 81;
-  /* gray-700 */
-  --color-border-light: 31 41 55;
-  /* gray-800 */
+  --color-border: 30 30 35;
+  --color-border-light: 20 20 22;
 
   /* Button Colors (Dark) */
-  --color-btn-primary-bg: 251 146 60;
-  --color-btn-primary-text: 17 24 39;
-  --color-btn-secondary-bg: 55 65 81;
-  --color-btn-secondary-text: 229 231 235;
+  --color-btn-primary-bg: 255 255 255;
+  --color-btn-primary-text: 0 0 0;
+  --color-btn-secondary-bg: 15 15 18;
+  --color-btn-secondary-text: 255 255 255;
 
   /* Status Colors (Dark) */
   --color-success: 74 222 128;
@@ -162,6 +148,12 @@ body {
 .text-theme-light {
   color: rgb(var(--color-text-light));
 }
+
+.text-theme-inv {
+  color: rgb(var(--color-bg));
+}
+
+/* Pure inverse of current background */
 
 .text-primary {
   color: rgb(var(--color-primary));
@@ -310,9 +302,9 @@ body {
 
 /* Primary Button */
 .btn-primary {
-  @apply px-6 py-3 font-semibold rounded-xl transition-all duration-300;
+  @apply px-6 py-3 font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2;
   background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-primary-hover)));
-  color: white;
+  color: rgb(var(--color-bg));
   box-shadow: 0 4px 15px rgb(var(--color-primary) / 0.3);
 }
 
